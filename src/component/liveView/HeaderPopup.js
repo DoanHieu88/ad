@@ -41,60 +41,57 @@ const useStyles = makeStyles({
     "& .MuiTreeItem-label": {
       backgroundColor: "#fff !important",
     },
-    "& .MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label:hover, .MuiTreeItem-root.Mui-selected:focus > .MuiTreeItem-content .MuiTreeItem-label ":
-      {
-        backgroundColor: "#fff !important",
-      },
+    "& .MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label:hover, .MuiTreeItem-root.Mui-selected:focus > .MuiTreeItem-content .MuiTreeItem-label ": {
+      backgroundColor: "#fff !important",
+    },
   },
 });
 
-const HeaderPopup = React.memo(
-  ({ listData, groupSelected, setGroupSelected, textSearch }) => {
-    const classes = useStyles();
-    const [valueSearch, setValueSearch] = useState("");
+const HeaderPopup = React.memo(({ listData, textSearch }) => {
+  const classes = useStyles();
+  const [valueSearch, setValueSearch] = useState("");
 
-    return (
-      <Box className={classes.container}>
-        <Box style={{ marginBottom: "10px" }}>
-          <Typography style={{ paddingBottom: 10 }}>
-            Owner Organization
-          </Typography>
-          <TextField
-            fullWidth
-            variant="outlined"
-            style={{ background: "#fff" }}
-            size="small"
-            placeholder={textSearch}
-            value={valueSearch}
-            inputProps={{ maxLength: 50 }}
-            onChange={(e) => {
-              setValueSearch(e.target.value);
-            }}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon fontSize={"small"} style={{ color: "#939393" }} />
-                </InputAdornment>
-              ),
-            }}
-          />
-        </Box>
-        {listData && listData.length && (
-          <Box
-            style={{
-              maxHeight: "300px",
-              overflow: "auto",
-              paddingRight: "16px",
-              marginRight: "-10px",
-            }}
-            className={classes.root}
-          >
-            {renderData(listData, classes, null, true)}
-          </Box>
-        )}
+  return (
+    <Box className={classes.container}>
+      <Box style={{ marginBottom: "10px" }}>
+        <Typography style={{ paddingBottom: 10 }}>
+          Owner Organization
+        </Typography>
+        <TextField
+          fullWidth
+          variant="outlined"
+          style={{ background: "#fff" }}
+          size="small"
+          placeholder={textSearch}
+          value={valueSearch}
+          inputProps={{ maxLength: 50 }}
+          onChange={(e) => {
+            setValueSearch(e.target.value);
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon fontSize={"small"} style={{ color: "#939393" }} />
+              </InputAdornment>
+            ),
+          }}
+        />
       </Box>
-    );
-  }
-);
+      {listData && listData.length && (
+        <Box
+          style={{
+            maxHeight: "300px",
+            overflow: "auto",
+            paddingRight: "16px",
+            marginRight: "-10px",
+          }}
+          className={classes.root}
+        >
+          {renderData(listData, classes, null, true)}
+        </Box>
+      )}
+    </Box>
+  );
+});
 
 export default React.memo(HeaderPopup);
