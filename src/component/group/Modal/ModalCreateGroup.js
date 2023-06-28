@@ -18,7 +18,7 @@ import { footerModalStyle } from "../../../until/style-common";
 export const useStylesModalCreate = makeStyles({
   root: {
     "& .MuiDialog-paper": {
-      overflowY: "hidden",
+      overflowY: "unset",
     },
     "& .MuiPaper-rounded": {
       borderRadius: "12px",
@@ -278,7 +278,6 @@ const ModalCreateGroup = ({ open, handleClose }) => {
         style={{
           width: 1000,
           height: "auto",
-          overflowY: "auto",
         }}
       >
         <Box

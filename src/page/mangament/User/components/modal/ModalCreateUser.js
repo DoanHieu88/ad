@@ -14,9 +14,12 @@ const ModalCreateUser = ({ open, handleClose }) => {
       open={open}
       onClose={handleClose}
       aria-labelledby="draggable-dialog-title"
+      style={{
+        "& .": {},
+      }}
       maxWidth="xl"
     >
-      <Box style={{ width: 1000, maxHeight: 1000, height: "auto" }}>
+      <Box style={{ width: 1000, height: "auto" }}>
         <Box
           style={{
             display: "flex",

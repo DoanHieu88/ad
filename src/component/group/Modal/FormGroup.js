@@ -75,7 +75,7 @@ const FormGroup = React.memo(
         <Box className={classes.Row}>
           <Box style={{ display: "flex", flexDirection: "column" }}>
             <Typography className={classes.labelInput}>
-              Group Name <span style={{ color: "red" }}>*</span>
+              Group Name <span style={{ color: "red" }}>(*)</span>
             </Typography>
             <TextField
               style={{ width: 450 }}
