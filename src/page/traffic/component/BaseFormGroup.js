@@ -10,15 +10,18 @@ const BaseFormGroup = ({
   showErrorMessage,
   widthCustom,
   customStyle,
-  isEditRecordModal
+  isEditRecordModal,
 }) => {
   return (
     <Grid
       container
-      justifyContent="space-between"
-      alignItems="center"
-      alignContent="center"
-      style={{ width: width || "100%", ...customStyle }}
+      style={{
+        width: width || "100%",
+        justifyContent: isEditRecordModal ? "flex-end" : "space-between",
+        alignItems: "center",
+        alignContent: "center",
+        ...customStyle,
+      }}
     >
       <Box>
         <Typography
@@ -29,11 +32,19 @@ const BaseFormGroup = ({
             letterSpacing: "normal",
             display: "flex",
             whiteSpace: "nowrap",
+            paddingRight: isEditRecordModal ? 6 : 0,
           }}
         >
-          {label}{" "}
+          {label}
           {isRequired && (
-            <span style={{ paddingLeft: "6px", color: "#dd3d4b" }}>*</span>
+            <span
+              style={{
+                paddingLeft: "6px",
+                color: "#dd3d4b",
+              }}
+            >
+              *
+            </span>
           )}
         </Typography>
       </Box>
@@ -51,11 +62,29 @@ const BaseFormGroup = ({
       </Box>
       <React.Fragment>
         <Box style={{ width: "100%" }}>
-          <Box style={{ width: widthCustom || "500px", marginLeft: isEditRecordModal? 153: "auto" }}>
-            <Typography color="error" style={{ marginTop: "5px", fontSize: 14 }}>
-              {showErrorMessage && error ? error.message : " "}
-            </Typography>
-          </Box>
+          {isEditRecordModal ? (
+            <Box style={{ width: widthCustom || "500px", marginLeft: 153 }}>
+              <Typography
+                color="error"
+                style={{ marginTop: "5px", fontSize: 12 }}
+              >
+                {showErrorMessage && error ? (
+                  error.message
+                ) : (
+                  <Box style={{ height: 18 }}></Box>
+                )}
+              </Typography>
+            </Box>
+          ) : (
+            <Box style={{ width: widthCustom || "500px", marginLeft: "auto" }}>
+              <Typography
+                color="error"
+                style={{ marginTop: "5px", fontSize: 14 }}
+              >
+                {showErrorMessage && error ? error.message : " "}
+              </Typography>
+            </Box>
+          )}
         </Box>
       </React.Fragment>
     </Grid>

@@ -42,6 +42,19 @@ const RecordingCamera = () => {
   const [camDataBar, setCamDataBar] = useState({ ...dataBarCam });
   const [isOpenCameraModal, setIsOpentCameraModal] = useState(false);
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
+  const [defaultEditModalData, setDefaultEditModalData] = useState({
+    id: "1",
+    serverName: "Server 001",
+    macAddress: "4sjs:dSjdjdjdj:ddd",
+    idAddress: "255.255.255.255",
+    publicAddress: "example.vhtcloudcam.vn.vn",
+    serverLocation: "380 Lac Long Quan",
+    cpu: "8",
+    ram: "16",
+    hdd: "256",
+    camera: "200",
+    cameraLimited: "500",
+  });
 
   const handleHideData = (key) => {
     const dataChange = { ...camDataBar[key], active: !camDataBar[key].active };
@@ -57,6 +70,7 @@ const RecordingCamera = () => {
     isOpenEditModal,
     setIsOpentCameraModal,
     setIsOpenEditModal,
+    defaultEditModalData,
   };
   return (
     <RecordingCameraContext.Provider value={data}>

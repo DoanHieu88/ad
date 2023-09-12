@@ -6,6 +6,8 @@ import BaseInputForm from "../../traffic/component/BaseInputForm";
 import BaseFormGroup from "../../traffic/component/BaseFormGroup";
 import yup from "../../traffic/javacript/yupGlobal";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useContext } from "react";
+import { RecordingCameraContext } from "..";
 
 const schema = yup.object().shape({
   serverName: yup.string().required("Tên server là trường bắt buộc"),
@@ -16,7 +18,11 @@ const schema = yup.object().shape({
 });
 
 const EditServerRecordModal = () => {
+  const { setIsOpenEditModal, defaultEditModalData } = useContext(
+    RecordingCameraContext
+  );
   const methods = useForm({
+    defaultValues: defaultEditModalData,
     resolver: yupResolver(schema),
   });
   const {
@@ -26,14 +32,18 @@ const EditServerRecordModal = () => {
   } = methods;
   const classes = styles();
   const handleEditingModal = (data) => {
-    console.log(data);
+    console.log("data", data);
   };
 
   return (
     <Box className={classes.root}>
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit()}>
-          <Grid style={{ marginTop: 5, marginBottom: 5 }} container spacing={6}>
+        <form onSubmit={methods.handleSubmit(handleEditingModal)}>
+          <Grid
+            style={{ marginTop: -15, marginBottom: -15 }}
+            container
+            spacing={6}
+          >
             <Grid item md={6}>
               {editServerArr.slice(0, 5).map((item) => (
                 <BaseFormGroup
@@ -63,7 +73,6 @@ const EditServerRecordModal = () => {
                 if (item.key === "ram" || item.key === "hdd") {
                   return (
                     <BaseFormGroup
-                      showErrorMessage
                       isEditRecordModal={true}
                       label={item.label}
                       key={item.key}
@@ -81,7 +90,6 @@ const EditServerRecordModal = () => {
                 } else {
                   return (
                     <BaseFormGroup
-                      showErrorMessage
                       isEditRecordModal={true}
                       key={item.key}
                       label={item.label}
@@ -100,19 +108,15 @@ const EditServerRecordModal = () => {
               })}
             </Grid>
           </Grid>
-          <Divider
-            style={{
-              width: "auto",
-              height: "1px",
-              backgroundColor: "#d3d3d3",
-            }}
-            variant="middle"
-          />
-          <Box className={classes.footer} style={{ marginTop: 24 }}>
-            <Box style={{ paddingRight: 12 }}>
-              <BaseButton content={"Cancel"} typeStyle={"border"} />
+          <Box className={classes.footer}>
+            <Box style={{ paddingRight: 14 }}>
+              <BaseButton
+                content={"Cancel"}
+                typeStyle={"border"}
+                onClick={() => setIsOpenEditModal(false)}
+              />
             </Box>
-            <Box style={{ paddingLeft: 12 }}>
+            <Box style={{ paddingLeft: 14 }}>
               <BaseButton
                 type="submit"
                 content={"Save"}
@@ -131,19 +135,7 @@ const styles = makeStyles({
     width: 800,
   },
   label: { marginRight: 24 },
-  columnWrapper: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: 16,
-  },
-  rowWrapper: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 24,
-    marginTop: 8,
-  },
+
   footer: {
     display: "flex",
     alignItems: "center",
