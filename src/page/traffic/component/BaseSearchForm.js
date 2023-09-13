@@ -3,7 +3,7 @@ import { SearchIcon } from "../../../common/icons/SearchIcon";
 import CloseIcon from "@material-ui/icons/Close";
 import { useState } from "react";
 
-const BaseSearchForm = ({ placeholder }) => {
+const BaseSearchForm = ({ placeholder, haveOwnMaxLength }) => {
   const [textSearch, setTextSearch] = useState("");
   const handleChangeKeyword = (e) => {
     const { value } = e.target;
@@ -11,7 +11,7 @@ const BaseSearchForm = ({ placeholder }) => {
       setTextSearch("");
       return;
     }
-    const maxLength = 20;
+    const maxLength = haveOwnMaxLength ? haveOwnMaxLength : 20;
 
     if (value.length <= maxLength) setTextSearch(value.replace(/ {2,}/g, " "));
   };

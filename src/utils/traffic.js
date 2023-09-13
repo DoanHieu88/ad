@@ -66,7 +66,7 @@ export const editServerArr = [
     key: "serverName",
     type: "text",
     maxLength: 50,
-    specialCharater: SPECIAL_CHARACTER_TEXT,
+    pattern: /[-!$%^&*()+|~=`{}\[\]:\/;,<>?@#]/,
   },
   {
     label: "Mac Address",
@@ -87,41 +87,32 @@ export const editServerArr = [
     label: "Server Location",
     key: "serverLocation",
     type: "text",
+    maxLength: 200,
   },
   {
     label: "CPU cores",
     key: "cpu",
     type: "text",
-    pattern: /\d+/,
-    checkSpecialCharater: SPECIAL_CHARACTER_NUMBER,
   },
   {
-    label: "RAM ",
+    label: "RAM",
     key: "ram",
     type: "text",
-    pattern: /\d+/,
-    checkSpecialCharater: SPECIAL_CHARACTER_NUMBER,
   },
   {
     label: "HDD",
     key: "hdd",
     type: "text",
-    pattern: /\d+/,
-    checkSpecialCharater: SPECIAL_CHARACTER_NUMBER,
   },
   {
     label: "Camera",
     key: "camera",
     type: "text",
-    pattern: /\d+/,
-    checkSpecialCharater: SPECIAL_CHARACTER_NUMBER,
   },
   {
     label: "Camera Limited",
     key: "cameraLimited",
     type: "text",
-    pattern: /\d+/,
-    checkSpecialCharater: SPECIAL_CHARACTER_NUMBER,
   },
 ];
 

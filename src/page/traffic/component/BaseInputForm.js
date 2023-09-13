@@ -1,4 +1,4 @@
-import { TextField } from "@material-ui/core";
+import { InputAdornment, TextField } from "@material-ui/core";
 import { Controller, useFormContext } from "react-hook-form";
 import { validateText } from "../javacript/common";
 import {
@@ -9,17 +9,22 @@ import {
 
 const BaseInputForm = ({
   name,
+  maxLength,
+  itemRegex,
+  haveWidth,
   isNoSpace = false,
   typeInput = "text",
+  haveAdorment,
   ...props
 }) => {
   const { control } = useFormContext();
+
   let regex = SPECIAL_CHARACTER_TEXT;
 
   if (typeInput === "number") {
     regex = SPECIAL_CHARACTER_NUMBER;
   } else if (typeInput === "normal") {
-    regex = SPECIAL_CHARACTER;
+    regex = itemRegex ? itemRegex : SPECIAL_CHARACTER;
   }
 
   return (
@@ -34,6 +39,7 @@ const BaseInputForm = ({
             {...props}
             value={value}
             onChange={(event) => {
+              console.log("isCorecct", regex.test(event.target.value));
               if (!regex.test(event.target.value)) {
                 onChange(validateText(event.target.value, isNoSpace));
               }
@@ -44,6 +50,11 @@ const BaseInputForm = ({
               }
             }}
             inputRef={ref}
+            inputProps={{ maxLength: maxLength }}
+            InputProps={{
+              endAdornment: haveAdorment && <InputAdornment>GB</InputAdornment>,
+            }}
+            style={{ width: haveWidth && 250 }}
           />
         );
       }}

@@ -63,10 +63,10 @@ const BaseFormGroup = ({
       <React.Fragment>
         <Box style={{ width: "100%" }}>
           {isEditRecordModal ? (
-            <Box style={{ width: widthCustom || "500px", marginLeft: 153 }}>
+            <Box style={{ width: widthCustom || "500px", marginLeft: 126 }}>
               <Typography
                 color="error"
-                style={{ marginTop: "5px", fontSize: 12 }}
+                style={{ marginTop: "5px", fontSize: 14 }}
               >
                 {showErrorMessage && error ? (
                   error.message
