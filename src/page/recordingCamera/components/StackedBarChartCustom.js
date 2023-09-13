@@ -84,7 +84,7 @@ const StackedBarChartCustom = ({ data, listBar, handleHideData }) => {
               fill={bar.color}
               hide={!bar.active}
               barSize={64}
-              style={{ marginRight: 80 }}
+              // style={{ marginRight: 80 }}
             />
           ))}
         </BarChart>

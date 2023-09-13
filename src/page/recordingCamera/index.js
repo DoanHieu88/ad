@@ -44,11 +44,12 @@ const dataCam = Array.from(Array(14)).map((_, index) => ({
   name: `service ${index}`,
   state: index % 2 !== 0 ? "Normal" : "Error",
   camera: "100/200",
-  on: Math.floor(Math.random() * 10) + 200,
-  off: Math.floor(Math.random() * 5) + 30,
+  on: Math.floor(Math.random() * 300),
+  off: Math.floor(Math.random() * 300),
   error: Math.floor(Math.random() * 300),
   errorMes: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed …",
 }));
+
 export const RecordingCameraContext = createContext({});
 const RecordingCamera = () => {
   const [isViewTable, setIsViewTable] = useState(false);
