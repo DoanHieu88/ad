@@ -112,6 +112,9 @@ const RecordingCamera = () => {
   const handleEditingModal = (data) => {
     console.log("data", data);
   };
+  const handleSearch = (data) =>{
+    console.log("searchdata", data)
+  }
 
   const data = {
     isOpenCameraModal,
@@ -125,7 +128,8 @@ const RecordingCamera = () => {
     cameraDataShow,
     handleChangePagination,
     setPagination,
-    pagination
+    pagination,
+    handleSearch
   };
   return (
     <FormProvider {...methods}>
