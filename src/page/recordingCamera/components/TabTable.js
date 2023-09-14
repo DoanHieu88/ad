@@ -159,10 +159,10 @@ export default function TabTable({ data }) {
                       className={classes.Icon}
                       onClick={() => setIsOpenEditModal(true)}
                     />
-                    <Accessibility
+                    {/* <Accessibility
                       className={classes.Icon}
                       onClick={() => setIsOpenStatusCameraModal(true)}
-                    />
+                    /> */}
                   </Box>
                 </TableCell>
               </TableRow>

@@ -1251,6 +1251,8 @@
       "status": "Online",
       "cameraStorage": "On",
       "message": "Some thing funny will happen right now!",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m",
       "id": "1"
     },
     {
@@ -1259,6 +1261,8 @@
       "status": "Offline",
       "cameraStorage": "Off",
       "message": " Nothing will happen right now!",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m 56s",
       "id": "2"
     },
     {
@@ -1267,6 +1271,8 @@
       "status": "Online",
       "cameraStorage": "On",
       "message": "Some violations will happen right now!",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m 56s",
       "id": "3"
     },
     {
@@ -1275,6 +1281,8 @@
       "status": "Online",
       "cameraStorage": "On",
       "message": "Running!",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m 56s",
       "id": "4"
     },
     {
@@ -1283,6 +1291,8 @@
       "status": "Offline",
       "cameraStorage": "Error",
       "message": "Camera error",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m 56s",
       "id": "5"
     },
     {
@@ -1291,6 +1301,8 @@
       "status": "Offline",
       "cameraStorage": "Error",
       "message": "Camera error",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m 56s",
       "id": "6"
     },
     {
@@ -1299,6 +1311,8 @@
       "status": "Offline",
       "cameraStorage": "Error",
       "message": "Camera error",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m 56s",
       "id": "7"
     },
     {
@@ -1307,6 +1321,8 @@
       "status": "Offline",
       "cameraStorage": "Off",
       "message": "Camera off",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m 56s",
       "id": "8"
     },
     {
@@ -1315,6 +1331,8 @@
       "status": "Offline",
       "cameraStorage": "On",
       "message": "Camera on",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m 56s",
       "id": "9"
     },
     {
@@ -1323,6 +1341,8 @@
       "status": "Online",
       "cameraStorage": "On",
       "message": "Camera on",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m 56s",
       "id": "10"
     },
     {
@@ -1331,6 +1351,8 @@
       "status": "Online",
       "cameraStorage": "On",
       "message": "Camera on",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m 56s",
       "id": "11"
     },
     {
@@ -1339,6 +1361,8 @@
       "status": "Online",
       "cameraStorage": "On",
       "message": "Camera on",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m 56s",
       "id": "12"
     },
     {
@@ -1347,6 +1371,8 @@
       "status": "Online",
       "cameraStorage": "On",
       "message": "Camera on",
+      "lastOnline": "05:06:07 08/06/2023",
+      "hour": "2h 34m 56s",
       "id": "13"
     }
   ]
