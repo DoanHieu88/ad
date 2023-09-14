@@ -30,9 +30,13 @@ import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useCameraData from "../../hooks/api/useCameraData";
 import { useMemo } from "react";
+import StatusCameraListModal from "./Modals/StatusCameraListModal";
 
 const schema = yup.object().shape({
-  serverName: yup.string().required("Server name is required").matches(/^[a-zA-Z0-9_]+$/, "Server name is invalid"),
+  serverName: yup
+    .string()
+    .required("Server name is required")
+    .matches(/^[a-zA-Z0-9_]+$/, "Server name is invalid"),
   macAddress: yup.string().required("Mac address is required"),
   idAddress: yup.string().required("ID address is required"),
   publicAddress: yup.string().required("Public address is required"),
@@ -54,7 +58,8 @@ export const RecordingCameraContext = createContext({});
 const RecordingCamera = () => {
   const [isViewTable, setIsViewTable] = useState(false);
   const [camDataBar, setCamDataBar] = useState({ ...dataBarCam });
-  const [isOpenCameraModal, setIsOpentCameraModal] = useState(false);
+  const [isOpenCameraModal, setIsOpenCameraModal] = useState(false);
+  const [isOpenStatusCameraModal, setIsOpenStatusCameraModal] = useState(false);
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const [checkedItemList, setCheckedItemList] = useState([]);
   const [defaultEditModalData, setDefaultEditModalData] = useState({
@@ -83,15 +88,15 @@ const RecordingCamera = () => {
     });
   };
 
-  const cameraDataShow = useMemo(()=>{
-    if(!cameraList) return [];
+  const cameraDataShow = useMemo(() => {
+    if (!cameraList) return [];
     return {
       data: cameraList.slice(
         pagination.page * (pagination.rowPerPage + 1),
         pagination.page * (pagination.rowPerPage + 1) + pagination.rowPerPage
       ),
-    }
-  }, [cameraList,  pagination])
+    };
+  }, [cameraList, pagination]);
 
   const methods = useForm({
     defaultValues: defaultEditModalData,
@@ -112,14 +117,15 @@ const RecordingCamera = () => {
   const handleEditingModal = (data) => {
     console.log("data", data);
   };
-  const handleSearch = (data) =>{
-    console.log("searchdata", data)
-  }
+  const handleSearch = (data) => {
+    console.log("searchdata", data);
+  };
 
   const data = {
     isOpenCameraModal,
     isOpenEditModal,
-    setIsOpentCameraModal,
+    setIsOpenCameraModal,
+    isOpenStatusCameraModal,
     setIsOpenEditModal,
     defaultEditModalData,
     handleEditingModal,
@@ -129,7 +135,8 @@ const RecordingCamera = () => {
     handleChangePagination,
     setPagination,
     pagination,
-    handleSearch
+    handleSearch,
+    setIsOpenStatusCameraModal,
   };
   return (
     <FormProvider {...methods}>
@@ -232,11 +239,11 @@ const RecordingCamera = () => {
           {isOpenCameraModal && (
             <CustomModal
               isOpen={isOpenCameraModal}
-              handleClose={() => setIsOpentCameraModal(false)}
+              handleClose={() => setIsOpenCameraModal(false)}
               title="Server 001"
             >
               <CameraListModal
-                handleClose={() => setIsOpentCameraModal(false)}
+                handleClose={() => setIsOpenCameraModal(false)}
               />
             </CustomModal>
           )}
@@ -248,6 +255,17 @@ const RecordingCamera = () => {
             >
               <EditServerRecordModal
                 handleClose={() => setIsOpenEditModal(false)}
+              />
+            </CustomModal>
+          )}
+          {isOpenStatusCameraModal && (
+            <CustomModal
+              isOpen={isOpenStatusCameraModal}
+              handleClose={() => setIsOpenStatusCameraModal(false)}
+              title="Server 00001"
+            >
+              <StatusCameraListModal
+                handleClose={() => setIsOpenStatusCameraModal(false)}
               />
             </CustomModal>
           )}

@@ -3,6 +3,7 @@ import ViolationImageInfo from "../page/traffic/component/ItemTable/ViolationIma
 import CameraStatus from "../page/traffic/component/ItemTable/CameraStatus";
 import CameraStorage from "../page/traffic/component/ItemTable/CameraStorage";
 import CameraAction from "../page/traffic/component/ItemTable/CameraAction";
+import CameraOnlineHours from "../page/traffic/component/ItemTable/CameraOnlineHours";
 export const SPECIAL_CHARACTER_TEXT = /[-!$%^&*()_+|~=`{}\[\]:\/;<>?,.@#0-9]/;
 export const SPECIAL_CHARACTER_NUMBER =
   /[-!$%^&*()_+|~=`{}\[\]:\/;,<>?@#a-zA-ZÀ-ỹ\s]/;
@@ -327,6 +328,45 @@ export const cameraStorageData = [
   {
     field: "message",
     name: "Camera Error Message",
+  },
+  {
+    field: "action",
+    name: "Action",
+    component: () => {
+      return <CameraAction />;
+    },
+  },
+];
+export const cameraStatusData = [
+  {
+    field: "stt",
+    name: "No.",
+  },
+  {
+    field: "cameraName",
+    name: "Camera name",
+  },
+  {
+    field: "status",
+    name: "Status",
+    component: (data) => {
+      return <CameraStatus data={data} />;
+    },
+  },
+  {
+    field: "lastOnline",
+    name: "Last Online Time",
+  },
+  {
+    field: "hour",
+    name: "Last Online Time",
+    component: (data) => {
+      return <CameraOnlineHours data={data}/>
+    }
+  },
+  {
+    field: "message",
+    name: "Error Message",
   },
   {
     field: "action",

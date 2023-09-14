@@ -12,6 +12,7 @@ import Paper from "@material-ui/core/Paper";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import InfoIcon from "@material-ui/icons/Info";
 import EditIcon from "@material-ui/icons/Edit";
+import Accessibility from "@material-ui/icons/Accessibility";
 import { useContext } from "react";
 import RecordingCamera, { RecordingCameraContext } from "..";
 
@@ -48,8 +49,9 @@ const useStyles = makeStyles({
 });
 
 export default function TabTable({ data }) {
-  const { setIsOpentCameraModal, setIsOpenEditModal } =
-  useContext(RecordingCameraContext);
+  const { setIsOpenCameraModal, setIsOpenEditModal, setIsOpenStatusCameraModal } = useContext(
+    RecordingCameraContext
+  );
   const classes = useStyles();
   const [optionPage, setOptionPage] = useState({
     page: 1,
@@ -144,20 +146,24 @@ export default function TabTable({ data }) {
                 </TableCell>
                 <TableCell align="left">{row.errorMes}</TableCell>
                 <TableCell align="left" style={{ width: 100 }}>
-                <Box className={classes.Cell}>
-                  <FileCopyIcon
-                    onClick={() => handleCopy(row.errorMes || "")}
-                    className={classes.Icon}
-                  />
-                  <InfoIcon
-                    className={classes.Icon}
-                    onClick={() => setIsOpentCameraModal(true)}
-                  />
-                  <EditIcon
-                    className={classes.Icon}
-                    onClick={() => setIsOpenEditModal(true)}
-                  />
-                </Box>
+                  <Box className={classes.Cell}>
+                    <FileCopyIcon
+                      onClick={() => handleCopy(row.errorMes || "")}
+                      className={classes.Icon}
+                    />
+                    <InfoIcon
+                      className={classes.Icon}
+                      onClick={() => setIsOpenCameraModal(true)}
+                    />
+                    <EditIcon
+                      className={classes.Icon}
+                      onClick={() => setIsOpenEditModal(true)}
+                    />
+                    <Accessibility
+                      className={classes.Icon}
+                      onClick={() => setIsOpenStatusCameraModal(true)}
+                    />
+                  </Box>
                 </TableCell>
               </TableRow>
             ))}

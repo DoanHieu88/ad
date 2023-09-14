@@ -1,5 +1,5 @@
 import { Box, Grid, makeStyles } from "@material-ui/core";
-import { cameraStorageData, serverArr } from "../../../utils/traffic";
+import { cameraStatusData, cameraStorageData, serverArr } from "../../../utils/traffic";
 import { useFormContext } from "react-hook-form";
 import BaseSearchForm from "../../traffic/component/BaseSearchForm";
 import BaseButton from "../../traffic/component/BaseButton";
@@ -8,7 +8,7 @@ import TableContent from "../../traffic/Table/TableContent";
 import { useContext } from "react";
 import { RecordingCameraContext } from "..";
 
-const CameraListModal = () => {
+const StatusCameraListModal = () => {
   const methods = useFormContext();
   const {} = methods;
 
@@ -25,7 +25,7 @@ const CameraListModal = () => {
   return (
     <Box className={classes.root}>
       <Grid container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item md={8}>
           <BaseSearchForm
             listData={cameraList}
             handleSearch={handleSearch}
@@ -34,23 +34,25 @@ const CameraListModal = () => {
           />
         </Grid>
         {serverArr.map((item) => {
-          return (
-            <Grid key={item.key} item xs={2}>
-              <SelectMultiple
-                placeholderContent={item.placeholderContent}
-                list={item.list}
-                btnText={item.btnText}
-              />
-            </Grid>
-          );
+          if (item.key === "status") {
+            return (
+              <Grid key={item.key} item md={2}>
+                <SelectMultiple
+                  placeholderContent={item.placeholderContent}
+                  list={item.list}
+                  btnText={item.btnText}
+                />
+              </Grid>
+            );
+          }
         })}
-        <Grid item xs={2}>
+        <Grid item md={2}>
           <BaseButton content={"Export Data"} />
         </Grid>
       </Grid>
       <Box className={classes.table}>
         <TableContent
-          tableHeader={cameraStorageData}
+          tableHeader={cameraStatusData}
           pagination={{
             page: pagination.page,
             rowPerPage: pagination.rowPerPage,
@@ -84,4 +86,4 @@ const style = makeStyles({
   },
 });
 
-export default CameraListModal;
+export default StatusCameraListModal;
