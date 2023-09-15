@@ -5,7 +5,7 @@ import BaseSearchForm from "../../traffic/component/BaseSearchForm";
 import BaseButton from "../../traffic/component/BaseButton";
 import SelectMultiple from "../../../component/SelectMultiple";
 import TableContent from "../../traffic/Table/TableContent";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { RecordingCameraContext } from "..";
 
 const CameraListModal = () => {
@@ -21,6 +21,18 @@ const CameraListModal = () => {
     handleSearch,
   } = useContext(RecordingCameraContext);
 
+  const newCamera = useMemo(() => {
+    if (cameraList.length < 9) {
+      const emptyItemLength = 9 - cameraList.length;
+      const emptyItemArray = Array.from(
+        { length: emptyItemLength },
+        () => ({})
+      );
+      return [{ ...cameraList, ...emptyItemArray }];
+    } else {
+      return cameraList;
+    }
+  }, [cameraList]);
   const classes = style();
   return (
     <Box className={classes.root}>
@@ -54,7 +66,7 @@ const CameraListModal = () => {
           pagination={{
             page: pagination.page,
             rowPerPage: pagination.rowPerPage,
-            length: cameraList ? cameraList.length : 0,
+            length: cameraList && cameraList.length,
           }}
           tableData={cameraDataShow.data}
           checkedItems={checkedItemList}
