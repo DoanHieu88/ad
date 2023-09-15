@@ -43,14 +43,14 @@ const schema = yup.object().shape({
   serverLocation: yup.string().required("Server Location is required"),
 });
 
-const dataCam = Array.from(Array(14)).map((_, index) => ({
+export const dataCam = Array.from(Array(14)).map((_, index) => ({
   id: index + 1,
   name: `service ${index}`,
   state: index % 2 !== 0 ? "Normal" : "Error",
   camera: "100/200",
-  on: Math.floor(Math.random() * 300),
-  off: Math.floor(Math.random() * 300),
-  error: Math.floor(Math.random() * 300),
+  on: (Math.floor(Math.random() * 500) / 1000) * 100,
+  off: (Math.floor(Math.random() * 300) / 1000) * 100,
+  error: (Math.floor(Math.random() * 300) / 1000) * 100,
   errorMes: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed …",
 }));
 
