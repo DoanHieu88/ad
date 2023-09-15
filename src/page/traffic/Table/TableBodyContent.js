@@ -32,6 +32,10 @@ const TableBodyContent = () => {
     }
   };
 
+  const isEmptyObject = (obj) => {
+    return Object.keys(obj).length !== 0;
+  };
+
   if (isLoading) {
     return (
       <TableBody>
@@ -105,10 +109,10 @@ const TableBodyContent = () => {
                     }
                   }}
                 >
-                  {component ? (
+                  {isEmptyObject(dataBody) && component ? (
                     component(dataBody)
                   ) : (
-                    <Typography className={classes.text} style={{ width }}>
+                    <Typography className={classes.text} style={{height: 24}}>
                       {dataBody[field]}
                     </Typography>
                   )}

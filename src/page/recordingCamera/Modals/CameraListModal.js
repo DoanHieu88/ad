@@ -21,18 +21,18 @@ const CameraListModal = () => {
     handleSearch,
   } = useContext(RecordingCameraContext);
 
-  const newCamera = useMemo(() => {
-    if (cameraList.length < 9) {
-      const emptyItemLength = 9 - cameraList.length;
+  const newCameraDataShow = useMemo(() => {
+    if (cameraDataShow.data.length < 9) {
+      const emptyItemLength = 9 - cameraDataShow.data.length;
       const emptyItemArray = Array.from(
         { length: emptyItemLength },
         () => ({})
       );
-      return [{ ...cameraList, ...emptyItemArray }];
+      return [...cameraDataShow.data, ...emptyItemArray];
     } else {
-      return cameraList;
+      return cameraDataShow.data;
     }
-  }, [cameraList]);
+  }, [cameraDataShow]);
   const classes = style();
   return (
     <Box className={classes.root}>
@@ -68,7 +68,7 @@ const CameraListModal = () => {
             rowPerPage: pagination.rowPerPage,
             length: cameraList && cameraList.length,
           }}
-          tableData={cameraDataShow.data}
+          tableData={newCameraDataShow}
           checkedItems={checkedItemList}
           handleChangePagination={handleChangePagination}
         />

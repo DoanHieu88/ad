@@ -254,8 +254,8 @@ export default function SelectMultiple({
               <Box
                 style={{
                   marginTop: "12px",
-                  height: "200px",
-                  overflowY: "scroll",
+                  height: list.length > 5 && "200px",
+                  overflowY: list.length > 5 && "scroll",
                 }}
                 className={classes.menu}
               >
