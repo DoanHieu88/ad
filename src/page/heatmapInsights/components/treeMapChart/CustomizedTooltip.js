@@ -60,7 +60,10 @@ const CustomizedTooltip = ({ payload }) => {
             <Box className={classes.value}>
               <Box
                 className={classes.fillColor}
-                style={{ background: item.payload.fill }}
+                style={{
+                  background:
+                    item.payload.root.fillColor || item.payload.fillColor,
+                }}
               ></Box>
               <Typography style={{ textTransform: "capitalize" }}>
                 {item.payload.name}:{" "}

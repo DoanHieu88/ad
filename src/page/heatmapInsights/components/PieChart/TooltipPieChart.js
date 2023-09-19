@@ -60,7 +60,7 @@ const TooltipPieChart = ({ payload, COLORS, title, data }) => {
             <Box className={classes.value}>
               <Box
                 className={classes.fillColor}
-                style={{ background: item.payload.fill }}
+                style={{ background: item.payload.fillColor }}
               ></Box>
               <Typography style={{ textTransform: "capitalize" }}>
                 {item.name}:

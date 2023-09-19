@@ -1,11 +1,12 @@
-import { Box, Paper } from "@material-ui/core";
+import { Box, Paper, Typography } from "@material-ui/core";
 import PieChartCustom from "./components/PieChart/PieChartCustom";
-import { heatmapInsights } from "./data";
+import { heatmapInsights, randomBgColor } from "./data";
 import TreeMapChart from "./components/treeMapChart/TreeMapChart";
 import { colorsRecordState } from "../recordingCamera/@type";
 import { useMemo, useState } from "react";
 import _ from "lodash";
 import LineCharCustom from "./components/LineChart/LineCharCustom";
+import LegendContent from "./components/LegendContent";
 
 const HeatmapInsights = () => {
   const [dataHeatmapInsight, setDataHeatmapInsights] = useState({
@@ -16,6 +17,7 @@ const HeatmapInsights = () => {
       dataKey: item.zoneName,
       value: item.totalVisitor,
       name: item.zoneName,
+      fillColor: randomBgColor(),
     })),
   });
 
@@ -50,7 +52,7 @@ const HeatmapInsights = () => {
         objName[it.zoneName] = Math.floor(
           (it.data[idx] / dataHeatmapInsight.totalSize) * 100 // convert to percent
         );
-        objName[`${it.zoneName} real`] = it.data[idx]; // take real data
+        objName[`${it.zoneName}_real`] = it.data[idx]; // take real data
       });
 
       return objName;
@@ -65,7 +67,7 @@ const HeatmapInsights = () => {
         flexDirection: "column",
       }}
     >
-      <Box style={{ padding: 20, width: "100%" }}>
+      <Box style={{ width: "100%" }}>
         <Paper
           style={{
             padding: 20,
@@ -75,35 +77,78 @@ const HeatmapInsights = () => {
             alignItems: "center",
           }}
         >
-          <Box style={{ display: "flex", width: "100%", height: "500px" }}>
-            <Box style={{ width: "50%", height: "100%" }}>
+          <Typography
+            style={{
+              textAlign: "left",
+              fontSize: 24,
+              fontWeight: "bold",
+              width: "100%",
+            }}
+          >
+            Site Analysis
+          </Typography>
+          <Box
+            style={{
+              display: "flex",
+              width: "100%",
+              height: "380px",
+              paddingTop: 20,
+            }}
+          >
+            <Box style={{ width: "40%", height: "100%" }}>
               <PieChartCustom
                 data={dataHeatmapInsight.dataZone}
-                COLORS={colorsRecordState}
                 type={"Service"}
                 total={dataHeatmapInsight.totalSize}
-                borderWidth={110}
+                outerRadius={"80%"}
+                innerRadius={100}
                 paddingAngle={1}
                 isTooltip={true}
                 title={"ZONE"}
                 handleHideData={handleHideDataPie}
-                isLegend={true}
+                // isLegend={true}
                 dataActive={dataActive}
               />
             </Box>
             <Box style={{ width: "100%", height: "100%" }}>
               <LineCharCustom
                 data={dataLineChart}
-                color={colorsRecordState}
                 dataKeys={dataHeatmapInsight.dataZone}
+                dataActive={dataHeatmapInsight.dataZone.filter(
+                  (it) => it.active
+                )}
               />
             </Box>
           </Box>
+          <Box>
+            <LegendContent
+              payload={dataHeatmapInsight.dataZone}
+              colors={colorsRecordState}
+              handleHideData={handleHideDataPie}
+            />
+          </Box>
+        </Paper>
+        <Paper
+          style={{
+            padding: 20,
+            marginTop: 20,
+          }}
+        >
+          <Typography
+            style={{
+              textAlign: "left",
+              fontSize: 24,
+              fontWeight: "bold",
+              width: "100%",
+              paddingBottom: 24,
+            }}
+          >
+            Sites Comparison
+          </Typography>
           <Box style={{ width: "100%" }}>
             <TreeMapChart />
           </Box>
         </Paper>
-        <Box></Box>
       </Box>
     </Box>
   );

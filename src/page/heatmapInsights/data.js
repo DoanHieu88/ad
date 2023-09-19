@@ -16,6 +16,20 @@ export const heatmapInsights = {
       totalVisitor: 300, // Tổng số sự kiện của Device
       data: [500, 600, 300, 400, 440, 103, 112],
     },
+    {
+      deviceId: "Code id 2",
+      deviceName: "Tên camera 2",
+      zoneName: "Zone 3",
+      totalVisitor: 350, // Tổng số sự kiện của Device
+      data: [300, 150, 240, 360, 409, 203, 330],
+    },
+    {
+      deviceId: "Code id 2",
+      deviceName: "Tên camera 2",
+      zoneName: "Zone 4",
+      totalVisitor: 210, // Tổng số sự kiện của Device
+      data: [220, 335, 451, 111, 333, 114, 231],
+    },
   ],
   totalSize: 1000,
   labelTime: ["01/07", "02/07", "03/07", "04/07", "05/07", "06/07", "07/07"],
@@ -41,6 +55,13 @@ export const heatmapInsightsAllSite = {
       totalVisitor: 220,
     },
   ],
+};
+
+export const randomBgColor = () => {
+  const x = Math.floor(Math.random() * 256);
+  const y = Math.floor(Math.random() * 256);
+  const z = Math.floor(Math.random() * 256);
+  return "rgb(" + x + "," + y + "," + z + ")";
 };
 
 export const data = [
@@ -85,4 +106,4 @@ export const data = [
     name: "operator",
     size: 4614,
   },
-];
+].map((it) => ({ ...it, fillColor: randomBgColor() }));

@@ -22,8 +22,7 @@ const TreeMapChart = () => {
         data={data}
         dataKey="size"
         stroke="#fff"
-        fill="#8884d8"
-        content={<CustomizedContent colors={COLORS} />}
+        content={<CustomizedContent colors={data.map((it) => it.fillColor)} />}
       >
         <Tooltip content={<CustomizedTooltip />} />
       </Treemap>

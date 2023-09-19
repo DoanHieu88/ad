@@ -1,36 +1,20 @@
-import { Box, Typography } from "@material-ui/core";
-import { useState } from "react";
 import {
   CartesianGrid,
   LineChart,
   ResponsiveContainer,
   XAxis,
   YAxis,
-  Legend,
   Line,
   Tooltip,
 } from "recharts";
 import TooltipLineChar from "./TooltipLineChar";
 
-const LineCharCustom = ({ data, color, dataKeys }) => {
-  const [listHide, setListHide] = useState([]);
-
-  const handleClickLegend = (value) => {
-    const { dataKey } = value;
-    const tempDataHide = [...listHide];
-    tempDataHide.includes(dataKey)
-      ? tempDataHide.splice(tempDataHide[dataKey], 1)
-      : tempDataHide.push(dataKey);
-    setListHide(tempDataHide);
-  };
-
+const LineCharCustom = ({ data, dataKeys, dataActive }) => {
   const formatTick = (value) => `${value}%`;
 
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart
-        width={500}
-        height={380}
         data={data}
         margin={{
           top: 5,
@@ -47,19 +31,18 @@ const LineCharCustom = ({ data, color, dataKeys }) => {
           tickFormatter={formatTick}
         />
         <Tooltip content={<TooltipLineChar />} />
-        <Legend
-          onClick={handleClickLegend}
-          cursor={"pointer"}
-          style={{ cursor: "pointer" }}
-        />
+        {/* <Legend cursor={"pointer"} style={{ cursor: "pointer" }} /> */}
         {dataKeys.map((it, idx) => {
           return (
             <Line
+              key={idx}
               type="monotone"
               dataKey={it.zoneName}
-              stroke={color[idx]}
+              stroke={it.fillColor}
               activeDot={{ r: 8 }}
-              hide={listHide.includes(it.zoneName)}
+              hide={dataActive
+                .map((item) => item.zoneName)
+                .includes(it.zoneName)}
             />
           );
         })}

@@ -71,7 +71,7 @@ const TooltipLineChar = ({ payload }) => {
               </Typography>
               <Typography>
                 {item.value}% ~{/* take real value ->*/}
-                {item && item.payload && item.payload[`${item.name} real`]}{" "}
+                {item && item.payload && item.payload[`${item.name}_real`]}{" "}
               </Typography>
             </Box>
           </Box>
