@@ -6,7 +6,7 @@ import RenderActiveShape from "./RenderActiveShape";
 
 const LabelData = ({ type, total }) => {
   return (
-    <Box style={{ position: "absolute", top: "43%", left: "43%" }}>
+    <Box style={{ position: "absolute", top: "50%", left: "50%" }}>
       <Typography
         style={{
           fontSize: 16,

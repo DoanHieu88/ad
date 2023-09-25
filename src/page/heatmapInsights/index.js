@@ -63,6 +63,7 @@ const HeatmapInsights = () => {
   return (
     <Box
       style={{
+        paddingBlock: 10,
         display: "flex",
         flexDirection: "column",
       }}
@@ -95,7 +96,7 @@ const HeatmapInsights = () => {
               paddingTop: 20,
             }}
           >
-            <Box style={{ width: "40%", height: "100%" }}>
+            <Box style={{ width: "30%", height: "100%" }}>
               <PieChartCustom
                 data={dataHeatmapInsight.dataZone}
                 type={"Service"}
@@ -110,22 +111,24 @@ const HeatmapInsights = () => {
                 dataActive={dataActive}
               />
             </Box>
-            <Box style={{ width: "100%", height: "100%" }}>
-              <LineCharCustom
-                data={dataLineChart}
-                dataKeys={dataHeatmapInsight.dataZone}
-                dataActive={dataHeatmapInsight.dataZone.filter(
-                  (it) => it.active
-                )}
-              />
+            <Box style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+              <Box style={{ width: "100%", height: "90%" }}>
+                <LineCharCustom
+                  data={dataLineChart}
+                  dataKeys={dataHeatmapInsight.dataZone}
+                  dataActive={dataHeatmapInsight.dataZone.filter(
+                    (it) => it.active
+                  )}
+                />
+              </Box>
+              <Box>
+                <LegendContent
+                  payload={dataHeatmapInsight.dataZone}
+                  colors={colorsRecordState}
+                  handleHideData={handleHideDataPie}
+                />
+              </Box>
             </Box>
-          </Box>
-          <Box>
-            <LegendContent
-              payload={dataHeatmapInsight.dataZone}
-              colors={colorsRecordState}
-              handleHideData={handleHideDataPie}
-            />
           </Box>
         </Paper>
         <Paper

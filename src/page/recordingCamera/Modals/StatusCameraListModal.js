@@ -1,5 +1,8 @@
 import { Box, Grid, makeStyles } from "@material-ui/core";
-import { cameraStatusData, cameraStorageData, serverArr } from "../../../utils/traffic";
+import {
+  cameraStatusData,
+  active
+} from "../../../utils/traffic";
 import { useFormContext } from "react-hook-form";
 import BaseSearchForm from "../../traffic/component/BaseSearchForm";
 import BaseButton from "../../traffic/component/BaseButton";
@@ -33,19 +36,15 @@ const StatusCameraListModal = () => {
             placeholder={"Search by device name, device ID"}
           />
         </Grid>
-        {serverArr.map((item) => {
-          if (item.key === "status") {
-            return (
-              <Grid key={item.key} item md={2}>
-                <SelectMultiple
-                  placeholderContent={item.placeholderContent}
-                  list={item.list}
-                  btnText={item.btnText}
-                />
-              </Grid>
-            );
-          }
-        })}
+
+        <Grid item md={2}>
+          <SelectMultiple
+            placeholderContent={"Search"}
+            list={active}
+            btnText={"Status"}
+          />
+        </Grid>
+
         <Grid item md={2}>
           <BaseButton content={"Export Data"} />
         </Grid>

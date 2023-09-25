@@ -7,7 +7,7 @@ const useStyle = makeStyles({
     boxShadow: "0 0 6px 0 rgba(0, 0, 0, 0.15)",
     backgroundColor: "#fff",
     borderRadius: "5px",
-    padding: 20,
+    padding: 15,
     zIndex: 2,
   },
   label: {
@@ -62,13 +62,15 @@ const TooltipLineChar = ({ payload }) => {
             key={item.name}
           >
             <Box className={classes.value}>
-              <Box
-                className={classes.fillColor}
-                style={{ background: item.color }}
-              ></Box>
-              <Typography style={{ textTransform: "capitalize" }}>
-                {item.name}:
-              </Typography>
+              <Box style={{display: "flex", flexDirection: "row"}}>
+                <Box
+                  className={classes.fillColor}
+                  style={{ background: item.color }}
+                ></Box>
+                <Typography style={{ textTransform: "capitalize" }}>
+                  {item.name}:
+                </Typography>
+              </Box>
               <Typography>
                 {item.value}% ~{/* take real value ->*/}
                 {item && item.payload && item.payload[`${item.name}_real`]}{" "}

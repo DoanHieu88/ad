@@ -10,7 +10,7 @@ import {
 import TooltipLineChar from "./TooltipLineChar";
 
 const LineCharCustom = ({ data, dataKeys, dataActive }) => {
-  const formatTick = (value) => `${value}%`;
+  const formatTick = (value) => `${value}% `;
 
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -24,11 +24,12 @@ const LineCharCustom = ({ data, dataKeys, dataActive }) => {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
+        <XAxis tickMargin={15} dataKey="name" padding={{ right: 20 }} />
         <YAxis
-          padding={{ top: 30 }}
+          padding={{ top: 10 }}
           ticks={[0, 20, 40, 60, 80, 100]}
           tickFormatter={formatTick}
+          tickMargin={10}
         />
         <Tooltip content={<TooltipLineChar />} />
         {/* <Legend cursor={"pointer"} style={{ cursor: "pointer" }} /> */}

@@ -8,7 +8,7 @@ const LegendContent = ({ handleHideData, payload }) => {
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        paddingBlock: 40,
+        paddingBlock: 25,
       }}
     >
       {payload.map((item, idx) => (

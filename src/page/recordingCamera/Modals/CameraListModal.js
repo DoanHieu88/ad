@@ -1,12 +1,16 @@
 import { Box, Grid, makeStyles } from "@material-ui/core";
-import { cameraStorageData, serverArr } from "../../../utils/traffic";
+import {
+  cameraStorageData,
+  active,
+  cameraStorage,
+} from "../../../utils/traffic";
 import { useFormContext } from "react-hook-form";
 import BaseSearchForm from "../../traffic/component/BaseSearchForm";
 import BaseButton from "../../traffic/component/BaseButton";
-import SelectMultiple from "../../../component/SelectMultiple";
 import TableContent from "../../traffic/Table/TableContent";
-import { useContext, useMemo } from "react";
+import { useContext, useMemo, useState } from "react";
 import { RecordingCameraContext } from "..";
+import SelectMulNoCheckBox from "../../../component/SelectMultipleNoCheckbox";
 
 const CameraListModal = () => {
   const methods = useFormContext();
@@ -19,6 +23,14 @@ const CameraListModal = () => {
     handleChangePagination,
     pagination,
     handleSearch,
+    selectedStatus,
+    selectedCamera,
+    isOpenStatus,
+    isOpenCamera,
+    handleSelectStatus,
+    handleSelectCamera,
+    setIsOpenStatus,
+    setIsOpenCamera,
   } = useContext(RecordingCameraContext);
 
   const newCameraDataShow = useMemo(() => {
@@ -45,17 +57,28 @@ const CameraListModal = () => {
             placeholder={"Search by device name, device ID"}
           />
         </Grid>
-        {serverArr.map((item) => {
-          return (
-            <Grid key={item.key} item xs={2}>
-              <SelectMultiple
-                placeholderContent={item.placeholderContent}
-                list={item.list}
-                btnText={item.btnText}
-              />
-            </Grid>
-          );
-        })}
+        <Grid item xs={2}>
+          <SelectMulNoCheckBox
+            placeholderContent={"Search"}
+            list={active}
+            btnText={"Status"}
+            selected={selectedStatus}
+            handleSelect={handleSelectStatus}
+            isOpen={isOpenStatus}
+            setIsOpen={setIsOpenStatus}
+          />
+        </Grid>
+        <Grid item xs={2}>
+          <SelectMulNoCheckBox
+            placeholderContent={"Search"}
+            list={cameraStorage}
+            btnText={"Camera Storage"}
+            selected={selectedCamera}
+            handleSelect={handleSelectCamera}
+            isOpen={isOpenCamera}
+            setIsOpen={setIsOpenCamera}
+          />
+        </Grid>
         <Grid item xs={2}>
           <BaseButton content={"Export Data"} />
         </Grid>
