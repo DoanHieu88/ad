@@ -15,4 +15,5 @@ export const AuthAction = {
   STATUS_MODAL: "STATUS_MODAL",
   USER_INFO: "USER_INFO",
   MESSAGE_OVER_OTP: "MESSAGE_OVER_OTP",
+  APP_ID: "APP_ID",
 };

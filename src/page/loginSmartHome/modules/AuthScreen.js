@@ -1,11 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import AuthMngtProvider from "../libs/provider/AuthProvider";
 import { Box, Paper, makeStyles, styled } from "@material-ui/core";
 import "../styles/auth.css";
 import AuthTemplate from "./auth/templates/auth.template";
-import { v4 as uuidv4 } from "uuid";
-import dayjs from "dayjs";
-import useGetAppId from "../libs/hooks/useGetAppId";
 
 const LayoutScreen = styled(Box)({
   backgroundImage: "url('/images/background_auth.png')",
@@ -20,16 +17,6 @@ const LayoutScreen = styled(Box)({
 
 const AuthScreen = () => {
   const classes = useStyles();
-  const appId = useGetAppId();
-
-  useEffect(() => {
-    if (appId) return;
-
-    localStorage.setItem(
-      "app_id",
-      `${uuidv4()}_${dayjs().format("YYYY-MM-DD_HH:mm:ss")}`
-    );
-  }, [appId]);
 
   return (
     <AuthMngtProvider>

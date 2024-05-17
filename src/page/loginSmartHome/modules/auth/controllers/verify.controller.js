@@ -34,7 +34,13 @@ const useVerifyController = () => {
       const { success, data } = res;
 
       if (success) {
-        console.log(data);
+        const dataJson = JSON.parse(data);
+
+        if (dataJson.code === 2001) {
+          verifyForm.setError("otp", {
+            message: "Mã OTP không chính xác. Vui lòng thử lại.",
+          });
+        }
       } else {
         console.log(data);
       }

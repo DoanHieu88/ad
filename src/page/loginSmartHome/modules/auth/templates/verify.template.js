@@ -163,6 +163,7 @@ const VerifyTemplate = () => {
                 width: "100%",
                 borderRadius: "8px",
                 border: "none",
+                cursor: "pointer",
               }}
               disabled={errors["otp"] || messageOverOtp !== ""}
             >

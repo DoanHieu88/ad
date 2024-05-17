@@ -1,14 +1,34 @@
 import { Box, Typography, makeStyles } from "@material-ui/core";
-import { useAuthContext } from "../../../libs/provider/AuthProvider";
-import React, { useMemo } from "react";
-import { AuthTabPanel } from "../../../libs/models/common";
+import {
+  useAuthContext,
+  useAuthDispatch,
+} from "../../../libs/provider/AuthProvider";
+import React, { useEffect, useMemo } from "react";
+import { AuthAction, AuthTabPanel } from "../../../libs/models/common";
 import LoginTemplate from "./login.template";
 import VerifyTemplate from "./verify.template";
 import { maskPhoneNumber } from "../../../libs/utils/common";
+import useGetAppId from "../../../libs/hooks/useGetAppId";
+import dayjs from "dayjs";
+import { v4 as uuidv4 } from "uuid";
 
 const AuthTemplate = () => {
   const classes = useStyles();
   const { authTab, userInfo } = useAuthContext();
+  const appId = useGetAppId();
+  const dispatch = useAuthDispatch();
+
+  useEffect(() => {
+    if (appId !== "" || !dispatch) return;
+
+    const randomId = `${uuidv4()}_${dayjs().format("YYYY-MM-DD_HH:mm:ss")}`;
+
+    localStorage.setItem("app_id", randomId);
+    dispatch({
+      type: AuthAction.APP_ID,
+      appId: randomId,
+    });
+  }, [appId, dispatch]);
 
   const titleAuth = useMemo(() => {
     if (authTab === AuthTabPanel.LOGIN) {
