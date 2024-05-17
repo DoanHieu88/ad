@@ -1,0 +1,10 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.leaflet-container {
+  flex: 1;
+  height: 900px;
+}

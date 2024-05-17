@@ -33,7 +33,7 @@ const defaultProps = {
 };
 
 const bootstrapURLKeys = {
-  key: "AIzaSyBR-uY9uzbU_4XVTNhIPB0R2c7xZKKO_wg",
+  key: "AIzaSyBEYKsBNZdwFNwobQFD8XNtN-DKSk70LA0",
   language: "vn",
   region: "vn",
   libraries: ["places"],

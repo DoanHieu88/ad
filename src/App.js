@@ -17,7 +17,7 @@ function App() {
 
   return (
     <React.Fragment>
-      <Box style={{ padding: 10 }}>
+      <Box>
         <Routes>
           {routes.map((r, i) => {
             const Page = r.element;

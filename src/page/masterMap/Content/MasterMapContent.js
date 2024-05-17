@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { GoogleMap } from "@react-google-maps/api";
+import { useContext, useEffect, useMemo, useState } from "react";
+import { GoogleMap, Polygon, Polyline } from "@react-google-maps/api";
 
 import { MasterMapContext } from "../MasterMap";
 import MarkerItem from "./MarkerItem";
@@ -81,6 +81,15 @@ const MasterMapContent = () => {
     });
   }, [markerList.data]);
 
+  const placesTracking = useMemo(() => {
+    return places.map((place) => {
+      return {
+        lat: place.lat,
+        lng: place.lng,
+      };
+    });
+  }, [places]);
+
   const handleOpenEditModal = (place) => {
     setPlaceSelected(place);
     setIsOpenEditModal(true);
@@ -110,6 +119,13 @@ const MasterMapContent = () => {
             />
           );
         })}
+        <Polyline
+          path={placesTracking}
+          strokeColor="#FF0000"
+          strokeOpacity={1.0}
+          strokeWeight={2}
+          geodesic
+        />
       </GoogleMap>
       {isOpenEditModal && (
         <EditCameraEdit

@@ -1,0 +1,418 @@
+{
+  "data": {
+    "currentPage": 1,
+    "totalEvents": 1696,
+    "events": [
+      {
+        "id": "7ef117400d0d11ef8535024209624052",
+        "deviceId": "abeaaaf0add011ee857c0242bae6ed32",
+        "videoId": "",
+        "label": null,
+        "description": {
+          "bboxes": [
+            {
+              "conf": 0.7078463,
+              "label": "luyennt"
+            }
+          ],
+          "msgId": "abeaaaf0add011ee857c0242bae6ed32_fdfr_1715153760099",
+          "time": 1715153760099
+        },
+        "thumbnail": {
+          "status": 1,
+          "bucketName": "office-event-20240508",
+          "objectName": null,
+          "fileName": "abeaaaf0add011ee857c0242bae6ed32/7ef005d00d0d11ef8535024209624052.jpg",
+          "fileSize": 114438,
+          "fileExtension": "jpg",
+          "fileURL": "http://ivacdn.viettel.io/office-event-20240508/abeaaaf0add011ee857c0242bae6ed32/7ef005d00d0d11ef8535024209624052.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073703Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=430ead773ad0d062457eba743cb1a16e492b31d2aa838b89271cd80f42017400",
+          "fileURLCeph": "http://ivacdn.viettel.io/office-event-20240508/abeaaaf0add011ee857c0242bae6ed32/7ef005d00d0d11ef8535024209624052.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073703Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=430ead773ad0d062457eba743cb1a16e492b31d2aa838b89271cd80f42017400",
+          "fileLocalURL": null,
+          "fileMinioURL": null,
+          "parentId": null,
+          "fileURLExpirationDate": "2024-05-09T07:37:03.130+00:00",
+          "fileChecksum": "6b6ffed9005f1b1724fa270aa626c747",
+          "fileURLExpired": false
+        },
+        "type": 3,
+        "createDate": 1715153823130,
+        "lastModified": 1715153823131,
+        "stringDescription": "{\"bboxes\":[{\"age\":0,\"ageBinProb\":0.0,\"ageProb\":0.0,\"alignRatio\":0.0,\"conf\":0.7078463,\"distanceEyesRatio\":0.0,\"eyeDistance\":3.9493408203125,\"eyeRatio\":0.4030948877334595,\"faceProb\":0.9999811,\"feature\":null,\"featureDistUnknown\":0.0,\"finalProb\":0.92193425,\"fullName\":\"Nguyễn Thị Luyện\",\"gender\":\"\",\"genderProb\":0.0,\"groupType\":\"1\",\"index\":-1,\"iou\":0.0,\"iouUnknonwn\":0.0,\"isInsideProcessArea\":true,\"isMask\":0,\"label\":\"luyennt\",\"labelMapWhileSent\":\"[]\",\"landmarks\":[null,null,null,null,null],\"lastFrExecuted\":1715153760099,\"maxAge\":0,\"meanOfBrightness\":0.0,\"minAge\":0,\"min_distance\":0.7644,\"noseRatio\":0.0,\"pairAlign\":null,\"personId\":\"011034\",\"pitchDeg\":0.0,\"ratioDistance\":0.0,\"recognizedDate\":{\"date\":{\"day\":8,\"month\":5,\"year\":2024},\"time\":{\"hour\":14,\"minute\":36,\"nano\":99000000,\"second\":0}},\"rollDeg\":0.0,\"searchCountWhileSent\":1,\"sharpness\":0.0,\"stdOfBrightness\":0.0,\"timeProcessFromInitTrack\":231,\"timeProcessFromInitTrackTotal\":231,\"trackId_WhileSent\":0,\"x1\":263.51028,\"x2\":273.30783,\"y1\":56.56339,\"y2\":68.95906,\"yawDeg\":0.0}],\"labelMap\":\"[]\",\"msgId\":\"abeaaaf0add011ee857c0242bae6ed32_fdfr_1715153760099\",\"time\":1715153760099,\"timeFromInitTrack\":231,\"trackID\":401,\"videoId\":\"\"}",
+        "fullName": "Nguyễn Thị Luyện",
+        "nationalId": "VN",
+        "msnv": "011034",
+        "yearOfBirth": "1978",
+        "imageCrop": null
+      },
+      {
+        "id": "ad69c2200d0d11efb0153afdc3cd602b",
+        "deviceId": "93fdf8e0af9f11eea61bbaf7db86dba7",
+        "videoId": "93fdf8e0af9f11eea61bbaf7db86dba7_fdfr_1715153768895",
+        "label": null,
+        "description": {
+          "bboxes": [
+            {
+              "conf": 0.7473106,
+              "label": "banglv1"
+            }
+          ],
+          "msgId": "93fdf8e0af9f11eea61bbaf7db86dba7_fdfr_1715153769862",
+          "time": 1715153769862
+        },
+        "thumbnail": {
+          "status": 1,
+          "bucketName": "office-event-20240508",
+          "objectName": null,
+          "fileName": "93fdf8e0af9f11eea61bbaf7db86dba7/ad6925e00d0d11efb0153afdc3cd602b.jpg",
+          "fileSize": 121811,
+          "fileExtension": "jpg",
+          "fileURL": "http://ivacdn.viettel.io/office-event-20240508/93fdf8e0af9f11eea61bbaf7db86dba7/ad6925e00d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073626Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=e08fb621a61d5a769ccefd6f90116d04118db706e5535765c4a01b08d30ea120",
+          "fileURLCeph": "http://ivacdn.viettel.io/office-event-20240508/93fdf8e0af9f11eea61bbaf7db86dba7/ad6925e00d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073626Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=e08fb621a61d5a769ccefd6f90116d04118db706e5535765c4a01b08d30ea120",
+          "fileLocalURL": null,
+          "fileMinioURL": null,
+          "parentId": null,
+          "fileURLExpirationDate": "2024-05-09T07:36:26.768+00:00",
+          "fileChecksum": "e7656797e95ee6c10c63e4ecde865d8c",
+          "fileURLExpired": false
+        },
+        "type": 3,
+        "createDate": 1715153786769,
+        "lastModified": 1715153786770,
+        "stringDescription": "{\"bboxes\":[{\"age\":0,\"ageBinProb\":0.0,\"ageProb\":0.0,\"alignRatio\":0.0,\"conf\":0.7473106,\"distanceEyesRatio\":0.0,\"eyeDistance\":7.37213134765625,\"eyeRatio\":0.46635496616363525,\"faceProb\":0.9987787,\"feature\":null,\"featureDistUnknown\":0.0,\"finalProb\":0.9910898,\"fullName\":\"Lê Văn Bằng\",\"gender\":\"\",\"genderProb\":0.0,\"groupType\":\"1\",\"index\":-1,\"iou\":0.0,\"iouUnknonwn\":0.0,\"isInsideProcessArea\":true,\"isMask\":0,\"label\":\"banglv1\",\"labelMapWhileSent\":\"[Unknown 1.2974062, ]\",\"landmarks\":[null,null,null,null,null],\"lastFrExecuted\":1715153769862,\"maxAge\":0,\"meanOfBrightness\":0.0,\"minAge\":0,\"min_distance\":0.7109,\"noseRatio\":0.0,\"pairAlign\":null,\"personId\":\"08a23c641d3b46a9bfd5e23b437521c6\",\"pitchDeg\":0.0,\"ratioDistance\":0.0,\"recognizedDate\":{\"date\":{\"day\":8,\"month\":5,\"year\":2024},\"time\":{\"hour\":14,\"minute\":36,\"nano\":862000000,\"second\":9}},\"rollDeg\":0.0,\"searchCountWhileSent\":3,\"sharpness\":0.0,\"stdOfBrightness\":0.0,\"timeProcessFromInitTrack\":562,\"timeProcessFromInitTrackTotal\":562,\"trackId_WhileSent\":0,\"x1\":420.8119,\"x2\":436.61987,\"y1\":88.052155,\"y2\":108.67527,\"yawDeg\":0.0}],\"labelMap\":\"[Unknown 1.2974062, ]\",\"msgId\":\"93fdf8e0af9f11eea61bbaf7db86dba7_fdfr_1715153769862\",\"time\":1715153769862,\"timeFromInitTrack\":562,\"trackID\":1001,\"videoId\":\"93fdf8e0af9f11eea61bbaf7db86dba7_fdfr_1715153768895\"}",
+        "fullName": "Lê Văn Bằng",
+        "nationalId": "VN",
+        "msnv": "241353",
+        "yearOfBirth": "1988",
+        "imageCrop": null
+      },
+      {
+        "id": "aa10ac100d0d11efb0153afdc3cd602b",
+        "deviceId": "70b4bf20b90611eebbdc3afdc3cd602b",
+        "videoId": "",
+        "label": null,
+        "description": {
+          "bboxes": [
+            {
+              "conf": 0.8866168856620789,
+              "label": null
+            }
+          ],
+          "msgId": null,
+          "time": 0
+        },
+        "thumbnail": {
+          "status": 1,
+          "bucketName": "office-event-20240508",
+          "objectName": null,
+          "fileName": "70b4bf20b90611eebbdc3afdc3cd602b/aa0fe8c00d0d11efb0153afdc3cd602b.jpg",
+          "fileSize": 389461,
+          "fileExtension": "jpg",
+          "fileURL": "http://ivacdn.viettel.io/office-event-20240508/70b4bf20b90611eebbdc3afdc3cd602b/aa0fe8c00d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073622Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ea5da82c5622c8458d38b123943f81ed57567bb57f48ccdedb8b717fed89efe7",
+          "fileURLCeph": "http://ivacdn.viettel.io/office-event-20240508/70b4bf20b90611eebbdc3afdc3cd602b/aa0fe8c00d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073622Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ea5da82c5622c8458d38b123943f81ed57567bb57f48ccdedb8b717fed89efe7",
+          "fileLocalURL": null,
+          "fileMinioURL": null,
+          "parentId": null,
+          "fileURLExpirationDate": "2024-05-09T07:36:22.657+00:00",
+          "fileChecksum": "59945c583b9fe2499cd0c6fc2c6f8710",
+          "fileURLExpired": false
+        },
+        "type": 3,
+        "createDate": 1715153782658,
+        "lastModified": 1715153782659,
+        "stringDescription": "{\"bboxes\":[{\"x1\":942, \"y1\":342, \"x2\": 1337, \"y2\": 821, \"trackID\": 2471, \"conf\": 0.8866168856620789, \"time\": 1715153759.7689369, \"race\": \"Asian\", \"race_pred\": \"Asian\", \"gender\": \"Female\", \"age_st\": \"36-45\", \"emotion\": \"Neutral\", \"goodness_score1\": 0.7241385579109192, \"goodness_score2\": 0.8602458238601685, \"goodness_score3\": 0.2918661832809448}]}",
+        "fullName": null,
+        "nationalId": null,
+        "msnv": null,
+        "yearOfBirth": null,
+        "imageCrop": null
+      },
+      {
+        "id": "9d937f800d0d11efba41baf7db86dba7",
+        "deviceId": "fe2b4b10e2a711ee86bf024209624052",
+        "videoId": "0",
+        "label": null,
+        "description": {
+          "bboxes": [
+            {
+              "conf": 1,
+              "label": "Unknown"
+            }
+          ],
+          "msgId": null,
+          "time": 0
+        },
+        "thumbnail": {
+          "status": 1,
+          "bucketName": "office-event-20240508",
+          "objectName": null,
+          "fileName": "fe2b4b10e2a711ee86bf024209624052/9d9295200d0d11efba41baf7db86dba7.jpg",
+          "fileSize": 403815,
+          "fileExtension": "jpg",
+          "fileURL": "http://ivacdn.viettel.io/office-event-20240508/fe2b4b10e2a711ee86bf024209624052/9d9295200d0d11efba41baf7db86dba7.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073613Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=66b17fa53ea518ebc5157f0d0a1009b279263769c7a8eb6f9791a46a3aac82f4",
+          "fileURLCeph": "http://ivacdn.viettel.io/office-event-20240508/fe2b4b10e2a711ee86bf024209624052/9d9295200d0d11efba41baf7db86dba7.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073613Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=66b17fa53ea518ebc5157f0d0a1009b279263769c7a8eb6f9791a46a3aac82f4",
+          "fileLocalURL": null,
+          "fileMinioURL": null,
+          "parentId": null,
+          "fileURLExpirationDate": "2024-05-09T07:36:13.107+00:00",
+          "fileChecksum": "2e106d7e87ef26b6547112e8f8d3db0b",
+          "fileURLExpired": false
+        },
+        "type": 3,
+        "createDate": 1715153773108,
+        "lastModified": 1715153773109,
+        "stringDescription": "{\"bboxes\":[{\"x1\":1210.7219, \"y1\":265.1989, \"x2\": 1318.8281, \"y2\": 377.03293, \"trackID\": 15363, \"time\": 1715153767470, \"label\": \"Unknown\", \"fullName\": \"Unknown\", \"conf\": 1}]}",
+        "fullName": null,
+        "nationalId": null,
+        "msnv": null,
+        "yearOfBirth": null,
+        "imageCrop": null
+      },
+      {
+        "id": "8feaf2500d0d11efb0153afdc3cd602b",
+        "deviceId": "93fdf8e0af9f11eea61bbaf7db86dba7",
+        "videoId": "93fdf8e0af9f11eea61bbaf7db86dba7_fdfr_1715153719791",
+        "label": null,
+        "description": {
+          "bboxes": [
+            {
+              "conf": 0.6235484,
+              "label": "phongdv6"
+            }
+          ],
+          "msgId": "93fdf8e0af9f11eea61bbaf7db86dba7_fdfr_1715153720372",
+          "time": 1715153720372
+        },
+        "thumbnail": {
+          "status": 1,
+          "bucketName": "office-event-20240508",
+          "objectName": null,
+          "fileName": "93fdf8e0af9f11eea61bbaf7db86dba7/8fea2f000d0d11efb0153afdc3cd602b.jpg",
+          "fileSize": 123993,
+          "fileExtension": "jpg",
+          "fileURL": "http://ivacdn.viettel.io/office-event-20240508/93fdf8e0af9f11eea61bbaf7db86dba7/8fea2f000d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073611Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86399&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=5788700879288e0f3df0e5a08de7b9172128e00c536cb8a36e1178c449fb8f24",
+          "fileURLCeph": "http://ivacdn.viettel.io/office-event-20240508/93fdf8e0af9f11eea61bbaf7db86dba7/8fea2f000d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073611Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86399&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=5788700879288e0f3df0e5a08de7b9172128e00c536cb8a36e1178c449fb8f24",
+          "fileLocalURL": null,
+          "fileMinioURL": null,
+          "parentId": null,
+          "fileURLExpirationDate": "2024-05-09T07:36:11.553+00:00",
+          "fileChecksum": "95bd003a10969db42dec48a9b06a19dd",
+          "fileURLExpired": false
+        },
+        "type": 3,
+        "createDate": 1715153771554,
+        "lastModified": 1715153771555,
+        "stringDescription": "{\"bboxes\":[{\"age\":0,\"ageBinProb\":0.0,\"ageProb\":0.0,\"alignRatio\":0.0,\"conf\":0.6235484,\"distanceEyesRatio\":0.0,\"eyeDistance\":5.452626705169678,\"eyeRatio\":0.4104252755641937,\"faceProb\":0.78054047,\"feature\":null,\"featureDistUnknown\":0.0,\"finalProb\":0.84494644,\"fullName\":\"Đinh Văn Phong\",\"gender\":\"\",\"genderProb\":0.0,\"groupType\":\"1\",\"index\":-1,\"iou\":0.0,\"iouUnknonwn\":0.0,\"isInsideProcessArea\":true,\"isMask\":1,\"label\":\"phongdv6\",\"labelMapWhileSent\":\"[Unknown 1.8443522, ]\",\"landmarks\":[null,null,null,null,null],\"lastFrExecuted\":1715153720372,\"maxAge\":0,\"meanOfBrightness\":0.0,\"minAge\":0,\"min_distance\":0.8677,\"noseRatio\":0.0,\"pairAlign\":null,\"personId\":\"fbae1df8d3d349f099f6b6eb848eeca8\",\"pitchDeg\":0.0,\"ratioDistance\":0.0,\"recognizedDate\":{\"date\":{\"day\":8,\"month\":5,\"year\":2024},\"time\":{\"hour\":14,\"minute\":35,\"nano\":372000000,\"second\":20}},\"rollDeg\":0.0,\"searchCountWhileSent\":4,\"sharpness\":0.0,\"stdOfBrightness\":0.0,\"timeProcessFromInitTrack\":697,\"timeProcessFromInitTrackTotal\":697,\"trackId_WhileSent\":0,\"x1\":440.9367,\"x2\":454.22202,\"y1\":70.183365,\"y2\":87.33908,\"yawDeg\":0.0}],\"labelMap\":\"[Unknown 1.8443522, ]\",\"msgId\":\"93fdf8e0af9f11eea61bbaf7db86dba7_fdfr_1715153720372\",\"time\":1715153720372,\"timeFromInitTrack\":697,\"trackID\":996,\"videoId\":\"93fdf8e0af9f11eea61bbaf7db86dba7_fdfr_1715153719791\"}",
+        "fullName": "Đinh Văn Phong",
+        "nationalId": "VN",
+        "msnv": "198507",
+        "yearOfBirth": "1986",
+        "imageCrop": null
+      },
+      {
+        "id": "9e17f1c00d0d11efb0153afdc3cd602b",
+        "deviceId": "fb8ee400461411eeb9230242c02cd0d1",
+        "videoId": "A4BsCSyPM4kIYwwqMbcaZ1Hx0ik5dHnN4j",
+        "label": null,
+        "description": {
+          "bboxes": [
+            {
+              "conf": 0.8361535668373108,
+              "label": "Unknown"
+            }
+          ],
+          "msgId": null,
+          "time": 0
+        },
+        "thumbnail": {
+          "status": 1,
+          "bucketName": "office-event-20240508",
+          "objectName": null,
+          "fileName": "fb8ee400461411eeb9230242c02cd0d1/9e1755800d0d11efb0153afdc3cd602b.jpg",
+          "fileSize": 476384,
+          "fileExtension": "jpg",
+          "fileURL": "http://ivacdn.viettel.io/office-event-20240508/fb8ee400461411eeb9230242c02cd0d1/9e1755800d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073611Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=201ea0ae77855eb4f808dd6bacbd528d3b69dfcbf4bf2f617214d838278db534",
+          "fileURLCeph": "http://ivacdn.viettel.io/office-event-20240508/fb8ee400461411eeb9230242c02cd0d1/9e1755800d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073611Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=201ea0ae77855eb4f808dd6bacbd528d3b69dfcbf4bf2f617214d838278db534",
+          "fileLocalURL": null,
+          "fileMinioURL": null,
+          "parentId": null,
+          "fileURLExpirationDate": "2024-05-09T07:36:11.288+00:00",
+          "fileChecksum": "d102c420b1d63289064590071d74f573",
+          "fileURLExpired": false
+        },
+        "type": 3,
+        "createDate": 1715153771288,
+        "lastModified": 1715153771289,
+        "stringDescription": "{\"bboxes\":[{\"x1\":621, \"y1\":336, \"x2\": 690, \"y2\": 408, \"trackID\": 1276, \"time\": 1715153760963, \"label\": \"Unknown\", \"fullName\": \"Unknown\", \"conf\": 0.8361535668373108}]}",
+        "fullName": null,
+        "nationalId": null,
+        "msnv": null,
+        "yearOfBirth": null,
+        "imageCrop": null
+      },
+      {
+        "id": "7bae21400d0d11efb0153afdc3cd602b",
+        "deviceId": "93fdf8e0af9f11eea61bbaf7db86dba7",
+        "videoId": "93fdf8e0af9f11eea61bbaf7db86dba7_fdfr_1715153686431",
+        "label": null,
+        "description": {
+          "bboxes": [
+            {
+              "conf": 0.7165708,
+              "label": "chaubnm"
+            }
+          ],
+          "msgId": "93fdf8e0af9f11eea61bbaf7db86dba7_fdfr_1715153686433",
+          "time": 1715153686433
+        },
+        "thumbnail": {
+          "status": 1,
+          "bucketName": "office-event-20240508",
+          "objectName": null,
+          "fileName": "93fdf8e0af9f11eea61bbaf7db86dba7/7bad36e00d0d11efb0153afdc3cd602b.jpg",
+          "fileSize": 124030,
+          "fileExtension": "jpg",
+          "fileURL": "http://ivacdn.viettel.io/office-event-20240508/93fdf8e0af9f11eea61bbaf7db86dba7/7bad36e00d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073503Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=067c03f35c554006c09b88a230a56845a2f7d4e81990ea6f7e0dd634dfd60355",
+          "fileURLCeph": "http://ivacdn.viettel.io/office-event-20240508/93fdf8e0af9f11eea61bbaf7db86dba7/7bad36e00d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073503Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=067c03f35c554006c09b88a230a56845a2f7d4e81990ea6f7e0dd634dfd60355",
+          "fileLocalURL": null,
+          "fileMinioURL": null,
+          "parentId": null,
+          "fileURLExpirationDate": "2024-05-09T07:35:03.363+00:00",
+          "fileChecksum": "913bdd8ad8001684a8d94a911b31bced",
+          "fileURLExpired": false
+        },
+        "type": 3,
+        "createDate": 1715153703363,
+        "lastModified": 1715153703364,
+        "stringDescription": "{\"bboxes\":[{\"age\":0,\"ageBinProb\":0.0,\"ageProb\":0.0,\"alignRatio\":0.0,\"conf\":0.7165708,\"distanceEyesRatio\":0.0,\"eyeDistance\":7.55570650100708,\"eyeRatio\":0.43593811988830566,\"faceProb\":0.6602973,\"feature\":null,\"featureDistUnknown\":0.0,\"finalProb\":0.7771619,\"fullName\":\"Bạch Ngọc Minh Châu\",\"gender\":\"\",\"genderProb\":0.0,\"groupType\":\"1\",\"index\":-1,\"iou\":0.0,\"iouUnknonwn\":0.0,\"isInsideProcessArea\":true,\"isMask\":0,\"label\":\"chaubnm\",\"labelMapWhileSent\":\"[]\",\"landmarks\":[null,null,null,null,null],\"lastFrExecuted\":1715153686433,\"maxAge\":0,\"meanOfBrightness\":0.0,\"minAge\":0,\"min_distance\":0.7529,\"noseRatio\":0.0,\"pairAlign\":null,\"personId\":\"68cbbdef9ad046beb2bd6d0e85eeeb35\",\"pitchDeg\":0.0,\"ratioDistance\":0.0,\"recognizedDate\":{\"date\":{\"day\":8,\"month\":5,\"year\":2024},\"time\":{\"hour\":14,\"minute\":34,\"nano\":433000000,\"second\":46}},\"rollDeg\":0.0,\"searchCountWhileSent\":1,\"sharpness\":0.0,\"stdOfBrightness\":0.0,\"timeProcessFromInitTrack\":175,\"timeProcessFromInitTrackTotal\":175,\"trackId_WhileSent\":0,\"x1\":447.4478,\"x2\":464.77988,\"y1\":95.95465,\"y2\":115.95464,\"yawDeg\":0.0}],\"labelMap\":\"[]\",\"msgId\":\"93fdf8e0af9f11eea61bbaf7db86dba7_fdfr_1715153686433\",\"time\":1715153686433,\"timeFromInitTrack\":175,\"trackID\":995,\"videoId\":\"93fdf8e0af9f11eea61bbaf7db86dba7_fdfr_1715153686431\"}",
+        "fullName": "Bạch Ngọc Minh Châu",
+        "nationalId": "VN",
+        "msnv": "455281",
+        "yearOfBirth": "2001",
+        "imageCrop": null
+      },
+      {
+        "id": "7a59dbe00d0d11efb0153afdc3cd602b",
+        "deviceId": "70b4bf20b90611eebbdc3afdc3cd602b",
+        "videoId": "",
+        "label": null,
+        "description": {
+          "bboxes": [
+            {
+              "conf": 0.7427950501441956,
+              "label": null
+            }
+          ],
+          "msgId": null,
+          "time": 0
+        },
+        "thumbnail": {
+          "status": 1,
+          "bucketName": "office-event-20240508",
+          "objectName": null,
+          "fileName": "70b4bf20b90611eebbdc3afdc3cd602b/7a5918900d0d11efb0153afdc3cd602b.jpg",
+          "fileSize": 378377,
+          "fileExtension": "jpg",
+          "fileURL": "http://ivacdn.viettel.io/office-event-20240508/70b4bf20b90611eebbdc3afdc3cd602b/7a5918900d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073501Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=a86c1fefd5ce7ea1aa5bebab9a69323604c9a79f5480bd3029ef2de4c7b6879e",
+          "fileURLCeph": "http://ivacdn.viettel.io/office-event-20240508/70b4bf20b90611eebbdc3afdc3cd602b/7a5918900d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073501Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=a86c1fefd5ce7ea1aa5bebab9a69323604c9a79f5480bd3029ef2de4c7b6879e",
+          "fileLocalURL": null,
+          "fileMinioURL": null,
+          "parentId": null,
+          "fileURLExpirationDate": "2024-05-09T07:35:01.145+00:00",
+          "fileChecksum": "fad9e5c289a6a943e9e49b819e4dbc84",
+          "fileURLExpired": false
+        },
+        "type": 3,
+        "createDate": 1715153701145,
+        "lastModified": 1715153701146,
+        "stringDescription": "{\"bboxes\":[{\"x1\":1674, \"y1\":301, \"x2\": 1842, \"y2\": 520, \"trackID\": 2473, \"conf\": 0.7427950501441956, \"time\": 1715153678.902016, \"race\": \"Other\", \"race_pred\": \"Asian\", \"gender\": \"Female\", \"age_st\": \"22-30\", \"emotion\": \"Neutral\", \"goodness_score1\": 0.733390748500824, \"goodness_score2\": 0.8433099985122681, \"goodness_score3\": 0.37920165061950684}]}",
+        "fullName": null,
+        "nationalId": null,
+        "msnv": null,
+        "yearOfBirth": null,
+        "imageCrop": null
+      },
+      {
+        "id": "701f4c500d0d11efb0153afdc3cd602b",
+        "deviceId": "fb8ee400461411eeb9230242c02cd0d1",
+        "videoId": "AWp8A1Vyt6NIZRpE6AF1Q9mTQIfJbHh6RE",
+        "label": null,
+        "description": {
+          "bboxes": [
+            {
+              "conf": 0.722527027130127,
+              "label": "Unknown"
+            }
+          ],
+          "msgId": null,
+          "time": 0
+        },
+        "thumbnail": {
+          "status": 1,
+          "bucketName": "office-event-20240508",
+          "objectName": null,
+          "fileName": "fb8ee400461411eeb9230242c02cd0d1/701e89000d0d11efb0153afdc3cd602b.jpg",
+          "fileSize": 489039,
+          "fileExtension": "jpg",
+          "fileURL": "http://ivacdn.viettel.io/office-event-20240508/fb8ee400461411eeb9230242c02cd0d1/701e89000d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073443Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=83080b519716f60bcf93f9b7d84658906beda3df2a49a6170c4b67549f1a4576",
+          "fileURLCeph": "http://ivacdn.viettel.io/office-event-20240508/fb8ee400461411eeb9230242c02cd0d1/701e89000d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073443Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=83080b519716f60bcf93f9b7d84658906beda3df2a49a6170c4b67549f1a4576",
+          "fileLocalURL": null,
+          "fileMinioURL": null,
+          "parentId": null,
+          "fileURLExpirationDate": "2024-05-09T07:34:43.982+00:00",
+          "fileChecksum": "947622fa0e51c696b38091ba0f3602b5",
+          "fileURLExpired": false
+        },
+        "type": 3,
+        "createDate": 1715153683982,
+        "lastModified": 1715153683983,
+        "stringDescription": "{\"bboxes\":[{\"x1\":699, \"y1\":351, \"x2\": 762, \"y2\": 402, \"trackID\": 1269, \"time\": 1715153683803, \"label\": \"Unknown\", \"fullName\": \"Unknown\", \"conf\": 0.722527027130127}]}",
+        "fullName": null,
+        "nationalId": null,
+        "msnv": null,
+        "yearOfBirth": null,
+        "imageCrop": null
+      },
+      {
+        "id": "6a9859c00d0d11efb0153afdc3cd602b",
+        "deviceId": "fe2b4b10e2a711ee86bf024209624052",
+        "videoId": "0",
+        "label": null,
+        "description": {
+          "bboxes": [
+            {
+              "conf": 1,
+              "label": "Unknown"
+            }
+          ],
+          "msgId": null,
+          "time": 0
+        },
+        "thumbnail": {
+          "status": 1,
+          "bucketName": "office-event-20240508",
+          "objectName": null,
+          "fileName": "fe2b4b10e2a711ee86bf024209624052/6a9748500d0d11efb0153afdc3cd602b.jpg",
+          "fileSize": 430346,
+          "fileExtension": "jpg",
+          "fileURL": "http://ivacdn.viettel.io/office-event-20240508/fe2b4b10e2a711ee86bf024209624052/6a9748500d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073434Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=cb1e28bcc01cfcb7aa9348df54e40b62d272ff79857ef4685a3fddfeadbfd9dd",
+          "fileURLCeph": "http://ivacdn.viettel.io/office-event-20240508/fe2b4b10e2a711ee86bf024209624052/6a9748500d0d11efb0153afdc3cd602b.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240508T073434Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=MJNSBW7D5GD6JAHT81DI%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=cb1e28bcc01cfcb7aa9348df54e40b62d272ff79857ef4685a3fddfeadbfd9dd",
+          "fileLocalURL": null,
+          "fileMinioURL": null,
+          "parentId": null,
+          "fileURLExpirationDate": "2024-05-09T07:34:34.655+00:00",
+          "fileChecksum": "1ce6a94160a967efdc51c4d2e6abe9d6",
+          "fileURLExpired": false
+        },
+        "type": 3,
+        "createDate": 1715153674655,
+        "lastModified": 1715153674656,
+        "stringDescription": "{\"bboxes\":[{\"x1\":1598.4497, \"y1\":275.68335, \"x2\": 1700.0322, \"y2\": 384.02255, \"trackID\": 15354, \"time\": 1715153682338, \"label\": \"Unknown\", \"fullName\": \"Unknown\", \"conf\": 1}]}",
+        "fullName": null,
+        "nationalId": null,
+        "msnv": null,
+        "yearOfBirth": null,
+        "imageCrop": null
+      }
+    ]
+  }
+}
