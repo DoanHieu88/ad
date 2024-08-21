@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import useVerifyController from "../controllers/verify.controller";
 import { Controller, FormProvider } from "react-hook-form";
 import OTPInput from "react-otp-input";
@@ -10,16 +10,18 @@ import {
   useAuthDispatch,
 } from "../../../libs/provider/AuthProvider";
 import { AuthAction, AuthTabPanel } from "../../../libs/models/common";
+import useExpiredController from "../controllers/expired.controller";
 
 const totalSeconds = 2 * 60 + 0;
 
 const VerifyTemplate = () => {
-  const { userInfo, messageOverOtp } = useAuthContext();
-  const { verifyForm, handleVerify } = useVerifyController();
+  const { userInfo, messageOverOtp, statusResend, timeExpired } =
+    useAuthContext();
+  const { verifyForm, isCountOver, setCountOver, handleVerify } =
+    useVerifyController();
+  const { handleResetExpired } = useExpiredController();
   const dispatch = useAuthDispatch();
 
-  const [isCountOver, setCountOver] = React.useState(false);
-  const [statusResend, setStatusResend] = React.useState(false);
   const [remainingSeconds, setRemainingSeconds] = useState(totalSeconds);
 
   const {
@@ -32,26 +34,35 @@ const VerifyTemplate = () => {
     }
   };
 
+  useEffect(() => {
+    if (timeExpired === 0) return;
+
+    setRemainingSeconds(timeExpired);
+  }, [timeExpired]);
+
   const handleReSendOtp = () => {
     sendOtp({ phone: userInfo.identifier });
   };
 
   const handleCountOver = useCallback((status) => {
     setCountOver(status);
-    setStatusResend(false);
+    dispatch({
+      type: AuthAction.STATUS_RESEND,
+      payload: false,
+    });
+    handleResetExpired();
   }, []);
 
   const handleResend = () => {
-    if (statusResend || messageOverOtp !== "") return;
+    if (statusResend || messageOverOtp.code === 2024) return;
 
     handleReSendOtp();
-    setStatusResend(true);
+    dispatch({
+      type: AuthAction.STATUS_RESEND,
+      payload: true,
+    });
     setCountOver(false);
     setRemainingSeconds(totalSeconds);
-
-    setTimeout(() => {
-      setStatusResend(false);
-    }, 2 * 60 * 1000);
   };
 
   return (
@@ -84,35 +95,36 @@ const VerifyTemplate = () => {
                   boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.25)",
                 }}
                 value={value}
-                onChange={onChange}
+                onChange={(e) => {
+                  onChange(e);
+                }}
                 numInputs={6}
                 inputType="tel"
                 renderInput={(props) => (
-                  <input {...props} onKeyDown={handleInputKeyDown} />
+                  <input
+                    {...props}
+                    onKeyDown={handleInputKeyDown}
+                    placeholder="0"
+                  />
                 )}
               />
             );
           }}
         />
 
-        {messageOverOtp !== "" && (
+        {messageOverOtp.code !== 0 ? (
           <Typography
-            style={{
-              color: "#EE0033",
-              marginTop: "8px",
-            }}
+            style={{ color: "#EA0029", marginTop: "8px", lineHeight: "24px" }}
           >
-            {messageOverOtp}
+            {messageOverOtp.message}
           </Typography>
-        )}
-
-        {errors["otp"] && (
+        ) : errors["otp"] ? (
           <Typography
             style={{ color: "#EA0029", marginTop: "8px", lineHeight: "24px" }}
           >
             {errors["otp"].message}
           </Typography>
-        )}
+        ) : null}
         <Box>
           <CountdownTimer
             isCountOver={isCountOver}
@@ -134,9 +146,15 @@ const VerifyTemplate = () => {
               style={{
                 textDecoration: "underline",
                 color:
-                  statusResend || messageOverOtp !== "" ? "#AEAEAE" : "#EE0033",
+                  statusResend ||
+                  messageOverOtp.code === 2008 ||
+                  messageOverOtp.code === 2024
+                    ? "#AEAEAE"
+                    : "#EE0033",
                 cursor:
-                  statusResend || messageOverOtp !== ""
+                  statusResend ||
+                  messageOverOtp.code === 2008 ||
+                  messageOverOtp.code === 2024
                     ? "not-allowed"
                     : "pointer",
               }}
@@ -156,16 +174,21 @@ const VerifyTemplate = () => {
               style={{
                 height: "40px",
                 backgroundColor:
-                  errors["otp"] || messageOverOtp !== ""
+                  errors["otp"] || isCountOver || messageOverOtp.code !== 0
                     ? "#AEAEAE"
                     : "#EE0033",
                 color: "#fff",
                 width: "100%",
                 borderRadius: "8px",
                 border: "none",
-                cursor: "pointer",
+                cursor:
+                  errors["otp"] || isCountOver || messageOverOtp.code !== 0
+                    ? "not-allowed"
+                    : "pointer",
               }}
-              disabled={errors["otp"] || messageOverOtp !== ""}
+              disabled={
+                errors["otp"] || isCountOver || messageOverOtp.code !== 0
+              }
             >
               Xác nhận
             </button>
@@ -185,6 +208,8 @@ const VerifyTemplate = () => {
                   type: AuthAction.TAB,
                   payload: AuthTabPanel.LOGIN,
                 });
+
+                handleResetExpired();
               }}
             >
               Hủy bỏ

@@ -1,18 +1,21 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { verifySchema } from "../../../libs/validations/auth.validation";
-import {
-  useAuthContext,
-  useAuthDispatch,
-} from "../../../libs/provider/AuthProvider";
-import { sendOtp, verifyOtp } from "../../../libs/data/auth";
+import { useAuthContext } from "../../../libs/provider/AuthProvider";
+import { loginSmartHome, sendOtp, verifyOtp } from "../../../libs/data/auth";
 import { useMutation } from "@tanstack/react-query";
 import useGetAppId from "../../../libs/hooks/useGetAppId";
-import { AuthAction } from "../../../libs/models/common";
+import { getMessageOtp } from "../../../libs/utils/message";
+import { useState } from "react";
+import useExpiredController from "./expired.controller";
+
+const arrCodeOtp = [2001, 2008, 2009, 2024];
 
 const useVerifyController = () => {
-  const { userInfo, messageOverOtp } = useAuthContext();
-  const dispatch = useAuthDispatch();
+  const { userInfo } = useAuthContext();
+  const [isCountOver, setCountOver] = useState(false);
+
+  const { handleExpired } = useExpiredController();
 
   const appId = useGetAppId();
 
@@ -36,19 +39,43 @@ const useVerifyController = () => {
       if (success) {
         const dataJson = JSON.parse(data);
 
-        if (dataJson.code === 2001) {
-          verifyForm.setError("otp", {
-            message: "Mã OTP không chính xác. Vui lòng thử lại.",
-          });
+        if (dataJson.code) {
+          if (dataJson.code === 2023 || dataJson.code === 2008) {
+            if (dataJson.otpError && dataJson.otpError === 9999) {
+              handleExpired(dataJson.lastOTP);
+
+              return;
+            }
+          }
+
+          if (arrCodeOtp.includes(dataJson.code)) {
+            verifyForm.setError("otp", {
+              type: "manual",
+              message: getMessageOtp(dataJson.code),
+            });
+          }
+        } else {
+          if (dataJson.otpError && dataJson.otpError === 9999) {
+            handleExpired(dataJson.lastOTP);
+
+            return;
+          }
+
+          if (dataJson.correct) {
+            loginSmartHome({
+              ...userInfo,
+              appId,
+            }).then((res) => {
+              alert("Đăng nhập thành công");
+            });
+          }
         }
-      } else {
-        console.log(data);
       }
     },
   });
 
   const handleVerify = (data) => {
-    if (messageOverOtp !== "") return;
+    if (isCountOver) return;
 
     verifyMutate.mutate({ identifier: userInfo.identifier, otp: data.otp });
   };
@@ -60,16 +87,10 @@ const useVerifyController = () => {
       if (success) {
         const dataJson = JSON.parse(data);
 
-        if (dataJson.code === 2024) {
-          dispatch({
-            type: AuthAction.MESSAGE_OVER_OTP,
-            payload: "Bạn đã dùng tối đa số OTP trong ngày",
-          });
-        }
-
-        if (dataJson.code === 2001) {
+        if (arrCodeOtp.includes(dataJson.code)) {
           verifyForm.setError("otp", {
-            message: "Mã OTP không chính xác. Vui lòng thử lại.",
+            type: "manual",
+            message: getMessageOtp(dataJson.code),
           });
         }
       }
@@ -78,9 +99,11 @@ const useVerifyController = () => {
 
   return {
     verifyForm,
+    isCountOver,
 
     handleVerify,
     handleResend,
+    setCountOver,
   };
 };
 

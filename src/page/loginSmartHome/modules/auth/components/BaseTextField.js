@@ -36,7 +36,7 @@ const BaseTextField = (rest, _ref) => {
           gap: "16px",
         }}
       >
-        {props.value.length > 0 && (
+        {props.value && props.value.length > 0 && (
           <Box className={classes.icon} onClick={handleResetValue}>
             <ResetInputIcon />
           </Box>

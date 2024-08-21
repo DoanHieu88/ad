@@ -49,22 +49,21 @@ function CountdownTimer({
               style={{
                 marginTop: "10px",
                 textAlign: "center",
+                color: "#AEAEAE",
                 fontWeight: "bold",
               }}
             >
               00:00
             </p>
           ) : (
-            <>
-              <p
-                style={{
-                  textAlign: "center",
-                }}
-                className=" text-primary-600 my-2 text-center font-semibold "
-              >
-                {format}
-              </p>
-            </>
+            <p
+              style={{
+                textAlign: "center",
+              }}
+              className=" text-primary-600 my-2 text-center font-semibold "
+            >
+              {format}
+            </p>
           )}
         </>
       );

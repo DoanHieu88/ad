@@ -4,7 +4,15 @@ import { Controller, useFormContext } from "react-hook-form";
 import BaseTextField from "./BaseTextField";
 import { InputKey } from "../../../libs/models/common";
 
-const BaseInputForm = ({ label, name, type, placeholder, isRequired }) => {
+const BaseInputForm = ({
+  label,
+  name,
+  type,
+  placeholder,
+  isRequired,
+  customCallBack,
+  maxLength = 20,
+}) => {
   const {
     control,
     formState: { errors },
@@ -22,10 +30,11 @@ const BaseInputForm = ({ label, name, type, placeholder, isRequired }) => {
           marginBottom: "8px",
           fontWeight: 600,
           lineHeight: "24px",
+          userSelect: "none",
         }}
       >
         {label}
-        <span style={{ color: "#EE0033" }}>*</span>
+        {isRequired && <span style={{ color: "#EE0033" }}>*</span>}
       </Typography>
       <Controller
         name={name}
@@ -35,16 +44,22 @@ const BaseInputForm = ({ label, name, type, placeholder, isRequired }) => {
 
           const handleChaneInput = (e) => {
             if (type === InputKey.password) {
-              if (e.target.value.length > 20) return;
+              if (e.target.value.length > maxLength) return;
+              customCallBack && customCallBack();
 
               onChange(e.target.value);
             } else if (type === "phone") {
+              customCallBack && customCallBack();
+
               const value = e.target.value.replace(/\D/g, "").replace(" ", "");
 
-              if (value.length > 10) return;
+              if (value.length > maxLength) return;
 
               onChange(value);
             } else {
+              customCallBack && customCallBack();
+
+              if (e.target.value.length > maxLength) return;
               const value = e.target.value.replace(" ", "");
               onChange(value);
             }

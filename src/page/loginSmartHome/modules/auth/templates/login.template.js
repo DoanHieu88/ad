@@ -16,18 +16,29 @@ import {
   useAuthDispatch,
 } from "../../../libs/provider/AuthProvider";
 import AppInstallModal from "../components/modals/AppInstallModal";
+import ResetIconOtp from "../../../libs/assets/ResetOtpIcon";
 
 const LoginTemplate = () => {
   const classes = useStyles();
   const dispatch = useAuthDispatch();
   const { captchaImage } = useAuthContext();
-  const { loginForm, loginMutate, handleLogin } = useLoginController();
+  const { loginForm, loginMutate, handleLogin, handleGetCaptcha } =
+    useLoginController();
 
   const handleOpenAppInstallModal = () => {
     dispatch({
       type: AuthAction.STATUS_MODAL,
       payload: true,
     });
+  };
+
+  const handleResetCaptcha = () => {
+    if (captchaImage !== "") {
+      dispatch({
+        type: AuthAction.CATPCHA_STATUS,
+        payload: "",
+      });
+    }
   };
 
   return (
@@ -46,6 +57,8 @@ const LoginTemplate = () => {
             label="Số điện thoại"
             type={InputKey.phone}
             placeholder="Nhập số điện thoại"
+            customCallBack={handleResetCaptcha}
+            maxLength={10}
             isRequired
           />
 
@@ -69,16 +82,23 @@ const LoginTemplate = () => {
                 style={{
                   margin: "auto",
                   width: "fit-content",
+                  display: "flex",
+                  gap: "10px",
+                  cursor: "pointer",
                 }}
               >
-                <img src={captchaImage} alt="Catcha_Image" />
+                <img src={captchaImage || ""} alt="Catcha_Image" />
+                <Box onClick={handleGetCaptcha}>
+                  <ResetIconOtp />
+                </Box>
               </Box>
               <BaseInputForm
                 name="captcha"
                 label="Mã Captcha"
                 type={InputKey.captcha}
-                placeholder="Nhập các ký tự trong hình"
+                placeholder="Nhập mã captcha"
                 isRequired
+                maxLength={10}
               />
             </Box>
           )}

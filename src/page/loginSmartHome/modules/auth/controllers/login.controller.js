@@ -1,7 +1,10 @@
 import React from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { loginSchema } from "../../../libs/validations/auth.validation";
+import {
+  loginCombine,
+  loginSchema,
+} from "../../../libs/validations/auth.validation";
 import { getCatpcha, loginSmartHome, sendOtp } from "../../../libs/data/auth";
 import { useMutation } from "@tanstack/react-query";
 import {
@@ -10,19 +13,27 @@ import {
 } from "../../../libs/provider/AuthProvider";
 import { AuthAction, AuthTabPanel } from "../../../libs/models/common";
 import useGetAppId from "../../../libs/hooks/useGetAppId";
+import useExpiredController from "./expired.controller";
+import extendedDayJs from "../../../../../utils/dayjs";
+
+// const { useState } = React;
 
 const useLoginController = () => {
   const { captchaImage } = useAuthContext();
   const dispatch = useAuthDispatch();
   const appId = useGetAppId();
+  const { handleExpired } = useExpiredController();
+
+  // const [counterCaptcha, setCounterCaptcha] = useState(0);
 
   const loginForm = useForm({
     defaultValues: {
       identifier: "",
       password: "",
+      captcha: "",
     },
     mode: "onChange",
-    resolver: yupResolver(loginSchema),
+    resolver: yupResolver(captchaImage !== "" ? loginCombine : loginSchema),
   });
 
   const handleGetCaptcha = () => {
@@ -34,7 +45,6 @@ const useLoginController = () => {
               type: AuthAction.CATPCHA_STATUS,
               payload: "data:image/jpeg;base64," + res.data,
             });
-            loginForm.setValue("captcha", "");
           }
         } else {
           console.log(res);
@@ -52,11 +62,57 @@ const useLoginController = () => {
       if (success) {
         const dataJson = JSON.parse(data);
 
+        if (dataJson.otpError && dataJson.otpError === 9999) {
+          handleExpired(dataJson.lastOTP);
+
+          return;
+        }
+
+        if (dataJson.otpError && dataJson.otpError === 8888) {
+          const time = extendedDayJs(dataJson.lastOTP)
+            .utc()
+            .diff(extendedDayJs().local().add(7, "hours"), "seconds");
+
+          dispatch({
+            type: AuthAction.TIME_EXPIRED,
+            payload: time,
+          });
+
+          return;
+        }
+
         if (dataJson.code === 2024) {
           dispatch({
             type: AuthAction.MESSAGE_OVER_OTP,
-            payload: "Bạn đã dùng tối đa số OTP trong ngày",
+            payload: {
+              code: 2024,
+              message: "Bạn đã dùng tối đa số OTP trong ngày",
+            },
           });
+
+          dispatch({
+            type: AuthAction.STATUS_RESEND,
+            payload: true,
+          });
+        } else if (dataJson.code === 2023) {
+          dispatch({
+            type: AuthAction.MESSAGE_OVER_OTP,
+            payload: {
+              code: 2023,
+              message: `Bạn đã nhập sai mã OTP quá 5 lần, vui lòng chờ 05:00 để thử lại`,
+            },
+          });
+
+          dispatch({
+            type: AuthAction.TIME_EXPIRED,
+            payload: 300,
+          });
+        } else if (dataJson.code === 2008) {
+          if (dataJson.otpError && dataJson.otpError === 9999) {
+            handleExpired(dataJson.lastOTP);
+
+            return;
+          }
         }
       }
     });
@@ -90,15 +146,26 @@ const useLoginController = () => {
         if (dataJson.code === 2013) {
           loginForm.setError("password", {
             type: "manual",
-            message: dataJson.message,
+            message: "Mật khẩu hoặc số điện thoại không khớp.",
           });
 
+          loginForm.setError("identifier", {
+            type: "manual",
+            message: "",
+          });
+
+          // setCounterCaptcha((prev) => prev + 1);
+
           if (captchaImage !== "") {
+            loginForm.setValue("captcha", "");
+
             handleGetCaptcha();
           }
         }
 
         if (dataJson.code === 3005) {
+          loginForm.setValue("captcha", "");
+
           handleGetCaptcha();
         }
 
@@ -144,6 +211,7 @@ const useLoginController = () => {
     loginMutate,
 
     handleLogin,
+    handleGetCaptcha,
   };
 };
 
