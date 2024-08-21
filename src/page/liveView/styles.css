@@ -1,0 +1,100 @@
+.calendar-custom .rmdp-calendar {
+  padding: 0;
+  background-color: #fff;
+}
+
+.calendar-custom .rmdp-header .rmdp-arrow {
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+}
+
+.calendar-custom .rmdp-header .rmdp-arrow-container:hover {
+  background-color: #898d91;
+  box-shadow: 0 0 3px #8798ad;
+}
+
+.calendar-custom .rmdp-calendar .rmdp-week .rmdp-week-day {
+  background-color: #f6f4f4;
+  color: #343434;
+  font-weight: 400;
+}
+
+.calendar-custom .rmdp-day span {
+  border-radius: 8px;
+}
+
+.calendar-custom .rmdp-day:not(.rmdp-disabled, .rmdp-day-hidden) span:hover {
+  background-color: #fa98a1;
+}
+
+.calendar-custom .rmdp-day-picker .rmdp-day.rmdp-today span,
+.rmdp-day.rmdp-today span {
+  background-color: #fa98a1 !important;
+}
+
+.calendar-custom .rmdp-day.rmdp-selected span:not(.highlight) {
+  background-color: #dd3d4b !important;
+  color: white;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.calendar-custom .rmdp-header-values {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.calendar-custom .rmdp-header-values span {
+  position: relative;
+}
+
+.calendar-custom .rmdp-header-values span:first-child {
+  text-decoration: underline;
+}
+
+/* .calendar-custom .rmdp-header-values #text {
+  display: none;
+} */
+
+.calendar-custom .rmdp-header-values span:first-child::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  right: -10px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid red;
+}
+
+.calendar-custom .rmdp-header-values span:last-child {
+  text-decoration: underline;
+  margin-left: 15px;
+}
+
+.calendar-custom .rmdp-header-values span:last-child::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid red;
+}
+
+.calendar-custom .future-day::after {
+  content: "";
+  position: absolute;
+  bottom: 5px; /* Điều chỉnh vị trí của dấu chấm */
+  right: 5px;
+  width: 5px;
+  height: 5px;
+  background-color: red; /* Màu của dấu chấm */
+  border-radius: 50%;
+}
